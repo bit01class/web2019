@@ -1,0 +1,54 @@
+SQL 명령 분류
+
+1. DML (Data Manipullation Language)
+- 테이블내의 데이터를 입력,수정,삭제할때 사용하는 SQL언어
+- 데이터를 실제로 DB에 저장할때는 COMMIT, 취소할때는 ROLLBACK을 사용한다.
+(1) select (조회) : 생성된 객체를 조회할 때 사용한다.
+(2) insert (삽입) : 생성된 객체의 데이터를 삽입할 때 사용한다.
+(3) delete (삭제) : 생성된 객체의 데이터를 삭제할 때 사용한다.
+(4) update (수정) : 생성된 객체의 데이터를 수정할 때 사용한다.
+
+
+2. DDL (Date Definition Language)
+자동 COMMIT 되지만, 컬럼 변경한 경우는 COMMIT 을 해야 적용되기도 한다.
+(1) create (생성) : 데이터베이스 객체들을 생성할 때 사용한다.
+(2) alter (변경) : 기존에 생성된 객체를 변경할 때 사용하는 문장이다.
+(3) drop (삭제) : 이미 생성된 객체들을 삭제할 때 사용한다.
+(4) rename (이름 수정) : 생성된 객체의 이름을 수정한다.
+(5) truncate (데이터 전체삭제) : 테이블에 있는 데이터를 삭제할 때 사용한다.
+(6) comment(주석) : 생성된 객체의 코멘트를 달아준다.
+
+
+3. DCL (Data Control Language)
+(1) grant (권한부여) : 접근제어나 어떤 작업을 허용하는 권한을 주는 역할을 한다.
+(2) revoke(권한 회수) : 허용된 권한을 없애는 역할을 한다.
+
+
+4. TCL (Transaction Control Language)
+- 트랜잭션(용어기억!) : 분리되어서는 안되는 논리적인 작업단위
+- TCL : DML문이 실행되어 DBMS에 저장되거나 되돌리기 위해 실행해야 하는 SQL (COMMIT, ROLLBACK)
+  1) 트랜잭션의 시작
+    - DBMS에 처음 접속했을때
+    - COMMIT 또는 ROLLBACK 했을때
+  2) 트랜잭션의 종료
+    - COMMIT 또는 ROLLBACK했을때
+    - DDL(CREATE,DROP,..)등이 실행되었을때
+    - DB가 종료될때
+  3) TCL의 종류
+   - COMMIT : SQL 문의 결과를 영구적으로 DB에 반영하는 SQL문. 데이터 변경 후 확정 사용한다.
+   - ROLLBACK : SQL문의 결과를 취소하는 SQL문. 데이터 변경 후 되돌릴때 사용한다.
+   - SAVEPOINT :트랜잭션의 한 지점에 표시하는 임시 저장점. 해당 savepoint로 이동한다.
+   - SESSTION : 오라클에 접속하면(Connect) 생성된다.
+  4) TCL관련 특성
+    (1) READ CONSISTENCY(읽기일관성)
+    - 어떤 사용자가 변경중인 행을 다른 사용자가 변경할 수 없게 하는 기술로써 변경중인 사용자에 의해 COMMIT또는 ROLLBACK이 실행된 후 변경되는 특성
+    (2) LOCK(잠금현상)
+    - 다른 사용자에 의해 DML문이 실행되어져서 동일한 데이터를 INSERT, UPDATE,DELETE할때 한쪽 사용자는 LOCK이 걸리는 현상
+
+
+DQL (SELECT)- 데이터 조회
+1) 기본구조
+SELECT 컬럼명1,컬럼명2,..
+FROM 테이블명
+[WHERE 조건절]
+[ORDER BY 정렬기준컬럼 [ASC|DESC]]

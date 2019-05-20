@@ -1,0 +1,23 @@
+계정만들기> create user <id> identified by <pw>;
+접속권한> grant create session to <id>;
+테이블권한> grant create table to <id>;
+테이블스페이스 확인>
+select file_name,tablespace_name from dba_data_files;
+테이블스페이스 생성>
+create tablespace <스페이스명> 
+	datafile '경로\파일명.dbf' size <크기>;
+
+계정이 테이블스페이스를 어떤것을 쓰고 얼마나 쓸수 있게 할지>
+alter user <id> quota <사용될 크기> on <스페이스명> 
+	default tablespace <스페이스명>;
+
+계정 생성시 사용할 테이블 스페이스 부여>
+create user <id> identified by <pw> default tablespace <spacename>;
+alter user <id> quota <사용될 크기> on <스페이스명> 
+
+권한 제거>
+REVOKE <권한 or 롤> FROM <id>;
+
+RESOURCE,CONNECT,DBA
+
+http://localhost:9090/apex

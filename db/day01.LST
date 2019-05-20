@@ -1,0 +1,794 @@
+SQL> select * from bonus;
+
+ENAME                JOB                       SAL       COMM                   
+-------------------- ------------------ ---------- ----------                   
+user01               tester                    100         10                   
+user02               tester                    200         20                   
+user03               tester                    300         30                   
+user04               tester                    400         40                   
+
+SQL> set heading off
+SQL> select * from bonus;
+
+user01               tester                    100         10                   
+user02               tester                    200         20                   
+user03               tester                    300         30                   
+user04               tester                    400         40                   
+
+SQL> set heading on
+SQL> select * from bonus;
+
+ENAME                JOB                       SAL       COMM                   
+-------------------- ------------------ ---------- ----------                   
+user01               tester                    100         10                   
+user02               tester                    200         20                   
+user03               tester                    300         30                   
+user04               tester                    400         40                   
+
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE          
+---------- -------------------- ------------------ ---------- --------          
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7369 SMITH                CLERK                    7902 80/12/17          
+       800                    20                                                
+                                                                                
+      7499 ALLEN                SALESMAN                 7698 81/02/20          
+      1600        300         30                                                
+                                                                                
+      7521 WARD                 SALESMAN                 7698 81/02/22          
+      1250        500         30                                                
+                                                                                
+
+     EMPNO ENAME                JOB                       MGR HIREDATE          
+---------- -------------------- ------------------ ---------- --------          
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7566 JONES                MANAGER                  7839 81/04/02          
+      2975                    20                                                
+                                                                                
+      7654 MARTIN               SALESMAN                 7698 81/09/28          
+      1250       1400         30                                                
+                                                                                
+      7698 BLAKE                MANAGER                  7839 81/05/01          
+      2850                    30                                                
+                                                                                
+
+     EMPNO ENAME                JOB                       MGR HIREDATE          
+---------- -------------------- ------------------ ---------- --------          
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7782 CLARK                MANAGER                  7839 81/06/09          
+      2450                    10                                                
+                                                                                
+      7788 SCOTT                ANALYST                  7566 87/04/19          
+      3000                    20                                                
+                                                                                
+      7839 KING                 PRESIDENT                     81/11/17          
+      5000                    10                                                
+                                                                                
+
+     EMPNO ENAME                JOB                       MGR HIREDATE          
+---------- -------------------- ------------------ ---------- --------          
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7844 TURNER               SALESMAN                 7698 81/09/08          
+      1500          0         30                                                
+                                                                                
+      7876 ADAMS                CLERK                    7788 87/05/23          
+      1100                    20                                                
+                                                                                
+      7900 JAMES                CLERK                    7698 81/12/03          
+       950                    30                                                
+                                                                                
+
+     EMPNO ENAME                JOB                       MGR HIREDATE          
+---------- -------------------- ------------------ ---------- --------          
+       SAL       COMM     DEPTNO                                                
+---------- ---------- ----------                                                
+      7902 FORD                 ANALYST                  7566 81/12/03          
+      3000                    20                                                
+                                                                                
+      7934 MILLER               CLERK                    7782 82/01/23          
+      1300                    10                                                
+                                                                                
+
+14 개의 행이 선택되었습니다.
+
+SQL> set linesize 120
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                 
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                 
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                 
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                 
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                 
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                 
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                 
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                 
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                 
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                 
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                 
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                 
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                 
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                 
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                 
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                 
+
+14 개의 행이 선택되었습니다.
+
+SQL> set linesize 150;
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                               
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                               
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                               
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                               
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                               
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                               
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                               
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                               
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                               
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                               
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                               
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                               
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                               
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                               
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                               
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                               
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                               
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                               
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                               
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                               
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                               
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                               
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                               
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                               
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                               
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                               
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> set pagesize 10
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                               
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                               
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                               
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                               
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                               
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                               
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                               
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                               
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                               
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                               
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                               
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                               
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                               
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> set pagesize 17
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                               
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                               
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                               
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                               
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                               
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                               
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                               
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                               
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                               
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                               
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                               
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                               
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                               
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                               
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                               
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                               
+
+14 개의 행이 선택되었습니다.
+
+SQL> select empno,ename,sal from emp;
+
+     EMPNO ENAME                       SAL                                                                                                            
+---------- -------------------- ----------                                                                                                            
+      7369 SMITH                       800                                                                                                            
+      7499 ALLEN                      1600                                                                                                            
+      7521 WARD                       1250                                                                                                            
+      7566 JONES                      2975                                                                                                            
+      7654 MARTIN                     1250                                                                                                            
+      7698 BLAKE                      2850                                                                                                            
+      7782 CLARK                      2450                                                                                                            
+      7788 SCOTT                      3000                                                                                                            
+      7839 KING                       5000                                                                                                            
+      7844 TURNER                     1500                                                                                                            
+      7876 ADAMS                      1100                                                                                                            
+      7900 JAMES                       950                                                                                                            
+      7902 FORD                       3000                                                                                                            
+      7934 MILLER                     1300                                                                                                            
+
+14 개의 행이 선택되었습니다.
+
+SQL> column sal format 0,000,000
+SQL> select empno,ename,sal from emp;
+
+     EMPNO ENAME                       SAL                                                                                                            
+---------- -------------------- ----------                                                                                                            
+      7369 SMITH                 0,000,800                                                                                                            
+      7499 ALLEN                 0,001,600                                                                                                            
+      7521 WARD                  0,001,250                                                                                                            
+      7566 JONES                 0,002,975                                                                                                            
+      7654 MARTIN                0,001,250                                                                                                            
+      7698 BLAKE                 0,002,850                                                                                                            
+      7782 CLARK                 0,002,450                                                                                                            
+      7788 SCOTT                 0,003,000                                                                                                            
+      7839 KING                  0,005,000                                                                                                            
+      7844 TURNER                0,001,500                                                                                                            
+      7876 ADAMS                 0,001,100                                                                                                            
+      7900 JAMES                 0,000,950                                                                                                            
+      7902 FORD                  0,003,000                                                                                                            
+      7934 MILLER                0,001,300                                                                                                            
+
+14 개의 행이 선택되었습니다.
+
+SQL> column sal clear
+SQL> select empno,ename,sal from emp;
+
+     EMPNO ENAME                       SAL                                                                                                            
+---------- -------------------- ----------                                                                                                            
+      7369 SMITH                       800                                                                                                            
+      7499 ALLEN                      1600                                                                                                            
+      7521 WARD                       1250                                                                                                            
+      7566 JONES                      2975                                                                                                            
+      7654 MARTIN                     1250                                                                                                            
+      7698 BLAKE                      2850                                                                                                            
+      7782 CLARK                      2450                                                                                                            
+      7788 SCOTT                      3000                                                                                                            
+      7839 KING                       5000                                                                                                            
+      7844 TURNER                     1500                                                                                                            
+      7876 ADAMS                      1100                                                                                                            
+      7900 JAMES                       950                                                                                                            
+      7902 FORD                       3000                                                                                                            
+      7934 MILLER                     1300                                                                                                            
+
+14 개의 행이 선택되었습니다.
+
+SQL> column sal format 9,999,999
+SQL> select empno,ename,sal from emp;
+
+     EMPNO ENAME                       SAL                                                                                                            
+---------- -------------------- ----------                                                                                                            
+      7369 SMITH                       800                                                                                                            
+      7499 ALLEN                     1,600                                                                                                            
+      7521 WARD                      1,250                                                                                                            
+      7566 JONES                     2,975                                                                                                            
+      7654 MARTIN                    1,250                                                                                                            
+      7698 BLAKE                     2,850                                                                                                            
+      7782 CLARK                     2,450                                                                                                            
+      7788 SCOTT                     3,000                                                                                                            
+      7839 KING                      5,000                                                                                                            
+      7844 TURNER                    1,500                                                                                                            
+      7876 ADAMS                     1,100                                                                                                            
+      7900 JAMES                       950                                                                                                            
+      7902 FORD                      3,000                                                                                                            
+      7934 MILLER                    1,300                                                                                                            
+
+14 개의 행이 선택되었습니다.
+
+SQL> column sal
+COLUMN   sal ON
+FORMAT   9,999,999
+SQL> select * from bonus;
+
+ENAME                JOB                       SAL       COMM                                                                                         
+-------------------- ------------------ ---------- ----------                                                                                         
+user01               tester                    100         10                                                                                         
+user02               tester                    200         20                                                                                         
+user03               tester                    300         30                                                                                         
+user04               tester                    400         40                                                                                         
+
+SQL> insert into bonus values ('user05','tester',5000,50);
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from bonus;
+
+ENAME                JOB                       SAL       COMM                                                                                         
+-------------------- ------------------ ---------- ----------                                                                                         
+user01               tester                    100         10                                                                                         
+user02               tester                    200         20                                                                                         
+user03               tester                    300         30                                                                                         
+user04               tester                    400         40                                                                                         
+user05               tester                  5,000         50                                                                                         
+
+SQL> column sal
+COLUMN   sal ON
+FORMAT   9,999,999
+SQL> column sal clear
+SQL> column ename format a10;
+SQL> select * from bonus;
+
+ENAME      JOB                       SAL       COMM                                                                                                   
+---------- ------------------ ---------- ----------                                                                                                   
+user01     tester                    100         10                                                                                                   
+user02     tester                    200         20                                                                                                   
+user03     tester                    300         30                                                                                                   
+user04     tester                    400         40                                                                                                   
+user05     tester                   5000         50                                                                                                   
+
+SQL> create table mytable01(
+  2  num number,
+  3  name varchar2(10),
+  4  nalja date
+  5  )
+  6  ;
+
+테이블이 생성되었습니다.
+
+SQL> select * from mytable01;
+
+선택된 레코드가 없습니다.
+
+SQL> insert into mytable01 (num,name,nalja) values (1111,'test01',sysdate);
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable01 (num,name,nalja) values (2222,'test02',sysdate);
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable01 (num,name,nalja) values (3333,'test03',sysdate);
+
+1 개의 행이 만들어졌습니다.
+
+SQL> commit;
+
+커밋이 완료되었습니다.
+
+SQL> select * from mytable01;
+
+       NUM NAME                 NALJA                                                                                                                 
+---------- -------------------- --------                                                                                                              
+      1111 test01               19/05/14                                                                                                              
+      2222 test02               19/05/14                                                                                                              
+      3333 test03               19/05/14                                                                                                              
+
+SQL> insert into mytable01 (num,name,nalja) values (3333,'abcdefghi',sysdate);
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable01 (num,name,nalja) values (4444,'abcdefghij',sysdate);
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable01 (num,name,nalja) values (5555,'abcdefghijk',sysdate);
+insert into mytable01 (num,name,nalja) values (5555,'abcdefghijk',sysdate)
+                                                    *
+1행에 오류:
+ORA-12899: "SCOTT"."MYTABLE01"."NAME" 열에 대한 값이 너무 큼(실제: 11, 최대값: 10) 
+
+
+SQL> select * from mytable01;
+
+       NUM NAME                 NALJA                                                                                                                 
+---------- -------------------- --------                                                                                                              
+      1111 test01               19/05/14                                                                                                              
+      2222 test02               19/05/14                                                                                                              
+      3333 test03               19/05/14                                                                                                              
+      3333 abcdefghi            19/05/14                                                                                                              
+      4444 abcdefghij           19/05/14                                                                                                              
+
+SQL> insert into mytable01 (num,name,nalja) values (5555,'하나둘',sysdate);
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable01 (num,name,nalja) values (5555,'하나둘셋',sysdate);
+insert into mytable01 (num,name,nalja) values (5555,'하나둘셋',sysdate)
+                                                    *
+1행에 오류:
+ORA-12899: "SCOTT"."MYTABLE01"."NAME" 열에 대한 값이 너무 큼(실제: 12, 최대값: 10) 
+
+
+SQL> edit mytable02.sql
+
+SQL> start mytable02.sql
+
+테이블이 생성되었습니다.
+
+SQL> select * from mytable02;
+
+선택된 레코드가 없습니다.
+
+SQL> insert into mytable02 (num,name) values (1,'a');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable02 (num,name) values (11,'a');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable02 (num,name) values (111,'a');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable02 (num,name) values (1111,'a');
+insert into mytable02 (num,name) values (1111,'a')
+                                         *
+1행에 오류:
+ORA-01438: 이 열에 대해 지정된 전체 자릿수보다 큰 값이 허용됩니다. 
+
+
+SQL> insert into mytable02 (num,name) values (111.1,'a');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable02 (num,name) values (111.11,'a');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable02 (num,name) values (111.111,'a');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable02 (num,name) values (111.1111,'a');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from mytable02;
+
+       NUM NAME                                                                                                                                       
+---------- ------                                                                                                                                     
+         1 a                                                                                                                                          
+        11 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+
+7 개의 행이 선택되었습니다.
+
+SQL> column num;
+SP2-0046: COLUMN 'num'이(가) 정의되지 않았습니다.
+SQL> column num format 9,999.99999999
+SQL> select * from mytable02;
+
+            NUM NAME                                                                                                                                  
+--------------- ------                                                                                                                                
+     1.00000000 a                                                                                                                                     
+    11.00000000 a                                                                                                                                     
+   111.00000000 a                                                                                                                                     
+   111.00000000 a                                                                                                                                     
+   111.00000000 a                                                                                                                                     
+   111.00000000 a                                                                                                                                     
+   111.00000000 a                                                                                                                                     
+
+7 개의 행이 선택되었습니다.
+
+SQL> insert into mytable01 values (1.1,'test',sysdate);
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from mytable01;
+
+            NUM NAME                 NALJA                                                                                                            
+--------------- -------------------- --------                                                                                                         
+ 1,111.00000000 test01               19/05/14                                                                                                         
+ 2,222.00000000 test02               19/05/14                                                                                                         
+ 3,333.00000000 test03               19/05/14                                                                                                         
+ 3,333.00000000 abcdefghi            19/05/14                                                                                                         
+ 4,444.00000000 abcdefghij           19/05/14                                                                                                         
+ 5,555.00000000 하나둘               19/05/14                                                                                                         
+     1.10000000 test                 19/05/14                                                                                                         
+
+7 개의 행이 선택되었습니다.
+
+SQL> column num clear
+SQL> select * from mytable01;
+
+       NUM NAME                 NALJA                                                                                                                 
+---------- -------------------- --------                                                                                                              
+      1111 test01               19/05/14                                                                                                              
+      2222 test02               19/05/14                                                                                                              
+      3333 test03               19/05/14                                                                                                              
+      3333 abcdefghi            19/05/14                                                                                                              
+      4444 abcdefghij           19/05/14                                                                                                              
+      5555 하나둘               19/05/14                                                                                                              
+       1.1 test                 19/05/14                                                                                                              
+
+7 개의 행이 선택되었습니다.
+
+SQL> insert into mytable02 values (2,'b');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from mytable02l
+  2  ;
+select * from mytable02l
+              *
+1행에 오류:
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다 
+
+
+SQL> select * from mytable02;
+
+       NUM NAME                                                                                                                                       
+---------- ------                                                                                                                                     
+         1 a                                                                                                                                          
+        11 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+         2 b                                                                                                                                          
+
+8 개의 행이 선택되었습니다.
+
+SQL> insert into mytable02 values ('c',3);
+insert into mytable02 values ('c',3)
+                              *
+1행에 오류:
+ORA-01722: 수치가 부적합합니다 
+
+
+SQL> edit mytable02.sql
+
+SQL> select * from mytable01;
+
+       NUM NAME                 NALJA                                                                                                                 
+---------- -------------------- --------                                                                                                              
+      1111 test01               19/05/14                                                                                                              
+      2222 test02               19/05/14                                                                                                              
+      3333 test03               19/05/14                                                                                                              
+      3333 abcdefghi            19/05/14                                                                                                              
+      4444 abcdefghij           19/05/14                                                                                                              
+      5555 하나둘               19/05/14                                                                                                              
+       1.1 test                 19/05/14                                                                                                              
+
+7 개의 행이 선택되었습니다.
+
+SQL> select * from mytable02;
+
+       NUM NAME                                                                                                                                       
+---------- ------                                                                                                                                     
+         1 a                                                                                                                                          
+        11 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+       111 a                                                                                                                                          
+         2 b                                                                                                                                          
+
+8 개의 행이 선택되었습니다.
+
+SQL> insert into mytable01 values (1212,'test','2019/05/01');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from mytable01;
+
+       NUM NAME                 NALJA                                                                                                                 
+---------- -------------------- --------                                                                                                              
+      1111 test01               19/05/14                                                                                                              
+      2222 test02               19/05/14                                                                                                              
+      3333 test03               19/05/14                                                                                                              
+      3333 abcdefghi            19/05/14                                                                                                              
+      4444 abcdefghij           19/05/14                                                                                                              
+      5555 하나둘               19/05/14                                                                                                              
+       1.1 test                 19/05/14                                                                                                              
+      1212 test                 19/05/01                                                                                                              
+
+8 개의 행이 선택되었습니다.
+
+SQL> select * from mytable01 where num=1212;
+
+       NUM NAME                 NALJA                                                                                                                 
+---------- -------------------- --------                                                                                                              
+      1212 test                 19/05/01                                                                                                              
+
+SQL> select nalja from mytable01 where num=1212;
+
+NALJA                                                                                                                                                 
+--------                                                                                                                                              
+19/05/01                                                                                                                                              
+
+SQL> select to_char(nalja,'yyyy/mm/dd hh:mi:ss') from mytable01 where num=1212;
+
+TO_CHAR(NALJA,'YYYY/MM/DDHH:MI:SS')                                                                                                                   
+--------------------------------------                                                                                                                
+2019/05/01 12:00:00                                                                                                                                   
+
+SQL> select to_char(nalja,'yyyy/mm/dd hh24:mi:ss') from mytable01 where num=1212;
+
+TO_CHAR(NALJA,'YYYY/MM/DDHH24:MI:SS')                                                                                                                 
+--------------------------------------                                                                                                                
+2019/05/01 00:00:00                                                                                                                                   
+
+SQL> insert into mytable01 values (3434,'test','2019-05-01');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable01 values (2323,'test','19-05-01');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from mytable01;
+
+       NUM NAME                 NALJA                                                                                                                 
+---------- -------------------- --------                                                                                                              
+      1111 test01               19/05/14                                                                                                              
+      2222 test02               19/05/14                                                                                                              
+      3333 test03               19/05/14                                                                                                              
+      3333 abcdefghi            19/05/14                                                                                                              
+      4444 abcdefghij           19/05/14                                                                                                              
+      5555 하나둘               19/05/14                                                                                                              
+       1.1 test                 19/05/14                                                                                                              
+      1212 test                 19/05/01                                                                                                              
+      3434 test                 19/05/01                                                                                                              
+      2323 test                 19/05/01                                                                                                              
+
+10 개의 행이 선택되었습니다.
+
+SQL> delete from mytable01;
+
+10 행이 삭제되었습니다.
+
+SQL> delete from mytable02;
+
+8 행이 삭제되었습니다.
+
+SQL> select * from mytable01;
+
+선택된 레코드가 없습니다.
+
+SQL> select * from mytable02;
+
+선택된 레코드가 없습니다.
+
+SQL> drop table mytable02;
+
+테이블이 삭제되었습니다.
+
+SQL> select * from mytable02;
+select * from mytable02
+              *
+1행에 오류:
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다 
+
+
+SQL> insert into mytable01 values (1111,'test1','19-05-01');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable01 values (2222,'test2','19-05-01');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> insert into mytable01 values (3333,'test3','19-05-01');
+
+1 개의 행이 만들어졌습니다.
+
+SQL> select * from mytable01;
+
+       NUM NAME                 NALJA                                                                                                                 
+---------- -------------------- --------                                                                                                              
+      1111 test1                19/05/01                                                                                                              
+      2222 test2                19/05/01                                                                                                              
+      3333 test3                19/05/01                                                                                                              
+
+SQL> truncate mytable01;
+truncate mytable01
+                 *
+1행에 오류:
+ORA-03290: 부적절한 truncate 명령어 - CLUSTER 혹은 TABLE 키워드의 누락 
+
+
+SQL> truncate table mytable01;
+
+테이블이 잘렸습니다.
+
+SQL> select * from mytable01;
+
+선택된 레코드가 없습니다.
+
+SQL> rename table mytable02;
+rename table mytable02
+       *
+1행에 오류:
+ORA-00903: 테이블명이 부적합합니다 
+
+
+SQL> rename mytable02;
+rename mytable02
+               *
+1행에 오류:
+ORA-00946: 누락된 TO 키워드 
+
+
+SQL> rename mytable to mytable02;
+rename mytable to mytable02
+*
+1행에 오류:
+ORA-04043: MYTABLE 객체는 존재하지 않습니다. 
+
+
+SQL> rename mytable01 to mytable02;
+
+테이블 이름이 변경되었습니다.
+
+SQL> select * from mytable01;
+select * from mytable01
+              *
+1행에 오류:
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다 
+
+
+SQL> select * from mytable02;
+
+선택된 레코드가 없습니다.
+
+SQL> desc mytable02;
+ 이름                                                                                널?      유형
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ NUM                                                                                          NUMBER
+ NAME                                                                                         VARCHAR2(10)
+ NALJA                                                                                        DATE
+
+SQL> alter table mytable02 add(title char(10));
+
+테이블이 변경되었습니다.
+
+SQL> desc mytable02;
+ 이름                                                                                널?      유형
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ NUM                                                                                          NUMBER
+ NAME                                                                                         VARCHAR2(10)
+ NALJA                                                                                        DATE
+ TITLE                                                                                        CHAR(10)
+
+SQL> alter table mytable02 title modify (title2 varchar2(10));
+alter table mytable02 title modify (title2 varchar2(10))
+                      *
+1행에 오류:
+ORA-01735: 부적합한 ALTER TABLE 옵션입니다 
+
+
+SQL> alter table mytable02 modify (title varchar2(10));
+
+테이블이 변경되었습니다.
+
+SQL> desc mytable02;
+ 이름                                                                                널?      유형
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ NUM                                                                                          NUMBER

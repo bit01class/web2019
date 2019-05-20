@@ -1,0 +1,16 @@
+Apache24 -> conf -> httpd.conf
+
+Define SRVROOT "c:/Apache24"
+
+ServerRoot "${SRVROOT}"
+
+ServerName 127.0.0.1:80
+ScriptAlias /cgi-bin/ "${SRVROOT}/cgi-bin/"
+
+<Directory "${SRVROOT}/cgi-bin">
+    Options +ExecCGI
+    AddHandler cgi-script .cgi .pl
+    Options FollowSymLinks
+    Require all granted
+</Directory>
+    AddHandler cgi-script .cgi

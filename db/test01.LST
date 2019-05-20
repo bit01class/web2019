@@ -1,0 +1,43 @@
+SQL> select * from tab;
+
+TNAME                                                        TABTYPE            
+------------------------------------------------------------ --------------     
+ CLUSTERID                                                                      
+----------                                                                      
+BONUS                                                        TABLE              
+                                                                                
+                                                                                
+DEPT                                                         TABLE              
+                                                                                
+                                                                                
+EMP                                                          TABLE              
+                                                                                
+                                                                                
+
+TNAME                                                        TABTYPE            
+------------------------------------------------------------ --------------     
+ CLUSTERID                                                                      
+----------                                                                      
+SALGRADE                                                     TABLE              
+                                                                                
+                                                                                
+
+SQL> select tname from tab;
+
+TNAME                                                                           
+------------------------------------------------------------                    
+BONUS                                                                           
+DEPT                                                                            
+EMP                                                                             
+SALGRADE                                                                        
+
+SQL> select deptno from dept;
+
+    DEPTNO                                                                      
+----------                                                                      
+        10                                                                      
+        20                                                                      
+        30                                                                      
+        40                                                                      
+
+SQL> spool off
