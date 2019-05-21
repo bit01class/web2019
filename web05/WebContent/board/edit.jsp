@@ -9,7 +9,7 @@
 <%
 String param=request.getParameter("idx");
 int num=Integer.parseInt(param);
-String sub="제목없음";
+String sub="";
 String content="";
 Date nalja=null;
 int cnt=0;
@@ -24,11 +24,8 @@ Class.forName(driver);
 Connection conn=null;
 Statement stmt=null;
 ResultSet rs=null;
-// update bbs01 set cnt=cnt+1 where num=
 try{
 	conn=DriverManager.getConnection(url, user, password);
-	stmt=conn.createStatement();
-	stmt.executeUpdate("update bbs01 set cnt=cnt+1 where num="+num);
 	stmt=conn.createStatement();
 	rs=stmt.executeQuery(sql);
 	if(rs.next()){
@@ -39,18 +36,19 @@ try{
 		cnt=rs.getInt(5);
 	}
 }finally{
+	if(rs!=null)rs.close();
 	if(stmt!=null)stmt.close();
 	if(conn!=null)conn.close();
 }
 
-
 %>
 <body>
-	<h1 align="center"><%=num %>번 글 상세</h1>
+	<h1 align="center"><%=num %>번 글 수정</h1>
+	<form action="update.jsp">
 	<table border="1" cellspacing="0" width="600" align="center">
 		<tr>
 			<td width="100" align="center" bgcolor="skyblue">글번호</td>
-			<td><%=num %></td>
+			<td><%=num %><input type="hidden" name="num" value="<%=num %>"></td>
 			<td width="100" align="center" bgcolor="skyblue">날짜</td>
 			<td><%=nalja %></td>
 			<td width="100" align="center" bgcolor="skyblue">조회수</td>
@@ -58,28 +56,22 @@ try{
 		</tr>
 		<tr>
 			<td align="center" bgcolor="skyblue">제목</td>
-			<td colspan="5"><%=sub %></td>
+			<td colspan="5"><input type="text" name="sub" value="<%=sub%>" size="60"></td>
 		</tr>
 		<tr height="100">
-			<td colspan="6"><%=content %></td>
+			<td colspan="6"><textarea name="content" rows="6" cols="80"><%=content %></textarea></td>
 		</tr>
 		<tr>
 			<td  align="center" colspan="6">
-				<a href="edit.jsp?idx=<%=num%>">[수 정]</a>
-				<a href="delete.jsp?idx=<%=num%>">[삭 제]</a>
+				<input type="submit" value="수 정">
+				<input type="reset" value="취 소">
+				
 			</td>
 		</tr>
 	</table>
+	</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
 
 
 
