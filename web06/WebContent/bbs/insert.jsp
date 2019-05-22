@@ -8,7 +8,11 @@
 </head>
 <body>
 	<%
+	// get방식 한글처리
+	// server > server.xml
+	// port="8080" URIEncoding="EUC-KR" 
 	String sub=request.getParameter("sub");
+	System.out.println(sub);
 	String content=request.getParameter("content");
 	String id=request.getParameter("id");
 	String ip=request.getRemoteAddr();
