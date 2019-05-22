@@ -11,6 +11,39 @@
 		<tr>
 			<td colspan="7" align="right">
 			<% 
+			String msg="로그인 실패";
+			String id=request.getParameter("id");
+			String pw=request.getParameter("pw");
+			String name="손님";
+
+			String sql="select count(num) from user02 where id='"+id+"' and pw='"+pw+"'";
+			String driver="oracle.jdbc.driver.OracleDriver";
+			String url="jdbc:oracle:thin:@127.0.0.1:1521:xe";
+			String user="hr";
+			String password="hr";
+			int result=0;
+			Class.forName(driver);
+			Connection conn=null;
+			Statement stmt=null;
+			ResultSet rs=null;
+
+			try{
+				conn=DriverManager.getConnection(url, user, password);
+				stmt=conn.createStatement();
+				rs=stmt.executeQuery(sql);
+				if(rs.next()){
+					result=rs.getInt(1);
+				}
+			}finally{
+				if(rs!=null)rs.close();
+				if(stmt!=null)stmt.close();
+				if(conn!=null)conn.close();
+			}
+			if(result>0){
+				msg=id+"님 로그인 하셨습니다";
+				session.setAttribute("login", true);
+			}
+			
 			if(session.getAttribute("login")==null){
 			%>
 			<a href="../login/login.jsp">[로그인]</a>
@@ -31,7 +64,7 @@
 			<td background="../imgs/bgmenu.png">&nbsp;</td>
 			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../">[HOME]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center">[소개]</td>
-			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="./list.jsp">[게시판]</a></td>
+			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../bbs/list.jsp">[게시판]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../guest/list.jsp">[방명록]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center">[로그인]</td>
 			<td background="../imgs/bgmenu.png">&nbsp;</td>
@@ -39,57 +72,8 @@
 		<tr height="200">
 			<td colspan="7">
 			<!-- MAIN START -->
-				<h1 align="center">게시판 목록</h1>
-				
-				<table width="500" align="center" border="1" cellspacing="0">
-					<tr>
-						<th bgcolor="#777777" width="60">글번호</th>
-						<th bgcolor="#777777">제목</th>
-						<th bgcolor="#777777" width="100">글쓴이</th>
-						<th bgcolor="#777777" width="100">날짜</th>
-					</tr>
-					
-					<%
-String sql="select num,sub,id,nalja from bbs02 order by num desc";
-String driver="oracle.jdbc.driver.OracleDriver";
-String url="jdbc:oracle:thin:@127.0.0.1:1521:xe";
-String user="hr";
-String password="hr";
-
-Class.forName(driver);
-
-Connection conn=null;
-Statement stmt=null;
-ResultSet rs=null;
-try{
-	conn=DriverManager.getConnection(url, user, password);
-	stmt=conn.createStatement();
-	rs=stmt.executeQuery(sql);
-	while(rs.next()){
-					%>
-					<tr>
-						<td><%=rs.getInt(1) %></td>
-						<td><%=rs.getString(2) %></td>
-						<td><%=rs.getString(3) %></td>
-						<td><%=rs.getDate(4) %></td>
-					</tr>
-					<%
-	}
-}finally{
-	if(rs!=null)rs.close();
-	if(stmt!=null)rs.close();
-	if(conn!=null)rs.close();
-}					
-					%>
-				
-				</table>
-				<br>
-				<center>
-				<form action="add.jsp">
-					<input type="submit" value="입 력">
-				</form>
-				</center>
-				<br><br><br><br>
+				<h1 align="center"><%=msg %></h1>
+				<br><br><br><br><br>
 			<!-- MAIN END -->
 			</td>
 		</tr>

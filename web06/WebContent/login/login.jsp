@@ -31,7 +31,7 @@
 			<td background="../imgs/bgmenu.png">&nbsp;</td>
 			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../">[HOME]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center">[소개]</td>
-			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="./list.jsp">[게시판]</a></td>
+			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../bbs/list.jsp">[게시판]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../guest/list.jsp">[방명록]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center">[로그인]</td>
 			<td background="../imgs/bgmenu.png">&nbsp;</td>
@@ -39,57 +39,26 @@
 		<tr height="200">
 			<td colspan="7">
 			<!-- MAIN START -->
-				<h1 align="center">게시판 목록</h1>
-				
-				<table width="500" align="center" border="1" cellspacing="0">
+				<h1 align="center">로그인 페이지</h1>
+				<form action="login_result.jsp">
+				<table>
 					<tr>
-						<th bgcolor="#777777" width="60">글번호</th>
-						<th bgcolor="#777777">제목</th>
-						<th bgcolor="#777777" width="100">글쓴이</th>
-						<th bgcolor="#777777" width="100">날짜</th>
+						<td>id</td>
+						<td><input type="text" name="id"></td>
 					</tr>
-					
-					<%
-String sql="select num,sub,id,nalja from bbs02 order by num desc";
-String driver="oracle.jdbc.driver.OracleDriver";
-String url="jdbc:oracle:thin:@127.0.0.1:1521:xe";
-String user="hr";
-String password="hr";
-
-Class.forName(driver);
-
-Connection conn=null;
-Statement stmt=null;
-ResultSet rs=null;
-try{
-	conn=DriverManager.getConnection(url, user, password);
-	stmt=conn.createStatement();
-	rs=stmt.executeQuery(sql);
-	while(rs.next()){
-					%>
 					<tr>
-						<td><%=rs.getInt(1) %></td>
-						<td><%=rs.getString(2) %></td>
-						<td><%=rs.getString(3) %></td>
-						<td><%=rs.getDate(4) %></td>
+						<td>pw</td>
+						<td><input type="password" name="pw"></td>
 					</tr>
-					<%
-	}
-}finally{
-	if(rs!=null)rs.close();
-	if(stmt!=null)rs.close();
-	if(conn!=null)rs.close();
-}					
-					%>
-				
+					<tr>
+						<td colspan="2">
+							<input type="submit" value="로그인">
+							<input type="reset" value="취 소">
+						</td>
+					</tr>
 				</table>
-				<br>
-				<center>
-				<form action="add.jsp">
-					<input type="submit" value="입 력">
 				</form>
-				</center>
-				<br><br><br><br>
+				<br><br><br><br><br>
 			<!-- MAIN END -->
 			</td>
 		</tr>

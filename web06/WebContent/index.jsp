@@ -10,9 +10,15 @@
 	<table width="800" align="center" border="0" cellspacing="0">
 		<tr>
 			<td colspan="7" align="right">
-			[로그인]
+			<% 
+			if(session.getAttribute("login")==null){
+			%>
+			<a href="login/login.jsp">[로그인]</a>
+			<%}else{ %>
+			<a href="login/logout.jsp">[로그아웃]</a>
+			<%} %>
 			/
-			[회원가입]
+			<a href="login/join.jsp">[회원가입]</a>
 			
 			</td>
 		</tr>
@@ -33,6 +39,7 @@
 		<tr height="200">
 			<td colspan="7">
 			<!-- MAIN START -->
+			
 			<img alt="main" src="imgs/main.jpg" width="100%">
 			<!-- MAIN END -->
 			</td>

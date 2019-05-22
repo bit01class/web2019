@@ -31,7 +31,7 @@
 			<td background="../imgs/bgmenu.png">&nbsp;</td>
 			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../">[HOME]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center">[소개]</td>
-			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="./list.jsp">[게시판]</a></td>
+			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../bbs/list.jsp">[게시판]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../guest/list.jsp">[방명록]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center">[로그인]</td>
 			<td background="../imgs/bgmenu.png">&nbsp;</td>
@@ -39,57 +39,67 @@
 		<tr height="200">
 			<td colspan="7">
 			<!-- MAIN START -->
-				<h1 align="center">게시판 목록</h1>
-				
-				<table width="500" align="center" border="1" cellspacing="0">
-					<tr>
-						<th bgcolor="#777777" width="60">글번호</th>
-						<th bgcolor="#777777">제목</th>
-						<th bgcolor="#777777" width="100">글쓴이</th>
-						<th bgcolor="#777777" width="100">날짜</th>
-					</tr>
+				<h1 align="center">회원가입 페이지</h1>
+				<form action="join_result.jsp">
+					<table align="center">
+						<tr>
+							<td bgcolor="#aa0000">원하시는 아이디</td>
+							<td><input type="text" name="id"></td>
+						</tr>
+						<tr>
+							<td bgcolor="#aa0000">패스워드</td>
+							<td><input type="password" name="pw"></td>
+						</tr>
+						<tr>
+							<td bgcolor="#aa0000">패스워드 재입력</td>
+							<td><input type="password" name="re"></td>
+						</tr>
+						<tr>
+							<td bgcolor="#aa0000">이름</td>
+							<td><input type="text" name="name"></td>
+						</tr>
+						<tr>
+							<td bgcolor="#aaaaaa">반을 선택</td>
+							<td><select name="class">
+									<option>class01</option>
+									<option>class02</option>
+									<option selected="selected">class03</option>
+									<option>class04</option>
+									<option>class05</option>
+									<option>class06</option>
+									<option>class07</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td bgcolor="#aaaaaa">전화번호</td>
+							<td><select name="tel0">
+								<option>010</option>
+								<option>011</option>
+								<option>017</option>
+								<option>019</option>
+								<option>070</option>
+							</select>
+							-
+							<input type="text" name="tel1" size="4">
+							-
+							<input type="text" name="tel2" size="4"></td>
+						</tr>
+						<tr>
+							<td colspan="2" bgcolor="#aaaaaa" align="center">
+							<input type="submit" value="회원가입">
+							<input type="reset" value="취 소">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<i>붉은색 항목은 필수입니다</i>
+								<p></p>
+							</td>
+						</tr>
+					</table>
 					
-					<%
-String sql="select num,sub,id,nalja from bbs02 order by num desc";
-String driver="oracle.jdbc.driver.OracleDriver";
-String url="jdbc:oracle:thin:@127.0.0.1:1521:xe";
-String user="hr";
-String password="hr";
-
-Class.forName(driver);
-
-Connection conn=null;
-Statement stmt=null;
-ResultSet rs=null;
-try{
-	conn=DriverManager.getConnection(url, user, password);
-	stmt=conn.createStatement();
-	rs=stmt.executeQuery(sql);
-	while(rs.next()){
-					%>
-					<tr>
-						<td><%=rs.getInt(1) %></td>
-						<td><%=rs.getString(2) %></td>
-						<td><%=rs.getString(3) %></td>
-						<td><%=rs.getDate(4) %></td>
-					</tr>
-					<%
-	}
-}finally{
-	if(rs!=null)rs.close();
-	if(stmt!=null)rs.close();
-	if(conn!=null)rs.close();
-}					
-					%>
-				
-				</table>
-				<br>
-				<center>
-				<form action="add.jsp">
-					<input type="submit" value="입 력">
 				</form>
-				</center>
-				<br><br><br><br>
+				<br><br><br><br><br>
 			<!-- MAIN END -->
 			</td>
 		</tr>
