@@ -23,9 +23,9 @@
 		</tr>
 		<tr>
 			<td background="imgs/bgmenu.png">&nbsp;</td>
-			<td background="imgs/bgmenu.png" width="80" align="center">[HOME]</td>
+			<td background="imgs/bgmenu.png" width="80" align="center"><a href="./index.jsp">[HOME]</a></td>
 			<td background="imgs/bgmenu.png" width="80" align="center">[소개]</td>
-			<td background="imgs/bgmenu.png" width="80" align="center">[게시판]</td>
+			<td background="imgs/bgmenu.png" width="80" align="center"><a href="bbs/list.jsp">[게시판]</a></td>
 			<td background="imgs/bgmenu.png" width="80" align="center"><a href="guest/list.jsp">[방명록]</a></td>
 			<td background="imgs/bgmenu.png" width="80" align="center">[로그인]</td>
 			<td background="imgs/bgmenu.png">&nbsp;</td>

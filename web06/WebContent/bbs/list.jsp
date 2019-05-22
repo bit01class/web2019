@@ -25,18 +25,26 @@
 			<td background="../imgs/bgmenu.png">&nbsp;</td>
 			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../">[HOME]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center">[소개]</td>
-			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../bbs/list.jsp">[게시판]</a></td>
-			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="./list.jsp">[방명록]</a></td>
+			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="./list.jsp">[게시판]</a></td>
+			<td background="../imgs/bgmenu.png" width="80" align="center"><a href="../guest/list.jsp">[방명록]</a></td>
 			<td background="../imgs/bgmenu.png" width="80" align="center">[로그인]</td>
 			<td background="../imgs/bgmenu.png">&nbsp;</td>
 		</tr>
 		<tr height="200">
 			<td colspan="7">
 			<!-- MAIN START -->
-				<h1 align="center">방명록</h1>
-				<table align="center" width="400" border="1" cellspacing="0">
+				<h1 align="center">게시판 목록</h1>
+				
+				<table width="500" align="center" border="1" cellspacing="0">
+					<tr>
+						<th bgcolor="#777777" width="60">글번호</th>
+						<th bgcolor="#777777">제목</th>
+						<th bgcolor="#777777" width="100">글쓴이</th>
+						<th bgcolor="#777777" width="100">날짜</th>
+					</tr>
+					
 					<%
-String sql="select * from guest02 order by num";
+String sql="select num,sub,id,nalja from bbs02 order by num desc";
 String driver="oracle.jdbc.driver.OracleDriver";
 String url="jdbc:oracle:thin:@127.0.0.1:1521:xe";
 String user="hr";
@@ -47,8 +55,7 @@ Class.forName(driver);
 Connection conn=null;
 Statement stmt=null;
 ResultSet rs=null;
-
-try{					
+try{
 	conn=DriverManager.getConnection(url, user, password);
 	stmt=conn.createStatement();
 	rs=stmt.executeQuery(sql);
@@ -57,27 +64,23 @@ try{
 					<tr>
 						<td><%=rs.getInt(1) %></td>
 						<td><%=rs.getString(2) %></td>
-					</tr>
-					<tr>
-						<td colspan="2"><%=rs.getString(3) %></td>
+						<td><%=rs.getString(3) %></td>
+						<td><%=rs.getDate(4) %></td>
 					</tr>
 					<%
 	}
 }finally{
 	if(rs!=null)rs.close();
-	if(stmt!=null)stmt.close();
-	if(conn!=null)conn.close();
-}
+	if(stmt!=null)rs.close();
+	if(conn!=null)rs.close();
+}					
 					%>
+				
 				</table>
 				<br>
 				<center>
-				<form action="insert.jsp">
-					<label for="id">글쓴이</label>
-					<input type="text" name="id" size="40"><br>
-					<textarea name="content" rows="3" cols="50"></textarea><br>
+				<form action="add.jsp">
 					<input type="submit" value="입 력">
-					<input type="reset" value="취 소">
 				</form>
 				</center>
 				<br><br><br><br>
