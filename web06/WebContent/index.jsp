@@ -26,14 +26,14 @@
 			<td background="imgs/bgmenu.png" width="80" align="center">[HOME]</td>
 			<td background="imgs/bgmenu.png" width="80" align="center">[소개]</td>
 			<td background="imgs/bgmenu.png" width="80" align="center">[게시판]</td>
-			<td background="imgs/bgmenu.png" width="80" align="center">[방명록]</td>
+			<td background="imgs/bgmenu.png" width="80" align="center"><a href="guest/list.jsp">[방명록]</a></td>
 			<td background="imgs/bgmenu.png" width="80" align="center">[로그인]</td>
 			<td background="imgs/bgmenu.png">&nbsp;</td>
 		</tr>
 		<tr height="200">
 			<td colspan="7">
 			<!-- MAIN START -->
-			
+			<img alt="main" src="imgs/main.jpg" width="100%">
 			<!-- MAIN END -->
 			</td>
 		</tr>
