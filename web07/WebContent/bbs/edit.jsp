@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR" import="java.sql.*"%>
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,54 +33,33 @@
 		<tr>
 			<td>
 				<center>
-				<h1>게시판</h1>
-				<table width="80%" border="1" cellspacing="0" align="center">
-					<tr>
-						<th width="80">글번호</th>
-						<th>글제목</th>
-						<th width="100">글쓴이</th>
-						<th width="100">날 짜</th>
-					</tr>
-<%
-String sql="select * from bbs03 order by num desc";
-Connection conn=null;
-Statement stmt=null;
-ResultSet rs=null;
-
-try{
-	conn=com.bit.db.MyOracle.getConnection();
-	stmt=conn.createStatement();
-	rs=stmt.executeQuery(sql);
-	int cnt=0;
-	while(rs.next()){
-		cnt++;
-		String ele="";
-		if(cnt%2==0){
-			ele=" bgcolor=\"#ffff90\"";
-		}
-%>					
-					<tr>
-						<td <%=ele %>><%=rs.getInt("num") %></td>
-						<td <%=ele %>><a href="detail.jsp?idx=<%=rs.getInt("num") %>"><%=rs.getString("sub") %></a></td>
-						<td <%=ele %>><%=rs.getString("id") %></td>
-						<td <%=ele %>><%=rs.getDate("nalja") %></td>
-					</tr>
-<%
-	}
-}finally{
-	if(rs!=null)rs.close();
-	if(stmt!=null)stmt.close();
-	if(conn!=null)conn.close();
-}
-%>					
-				</table>
-				
-				<form action="add.jsp">
-					<input type="submit" value="입 력">
+				<h1>수정페이지</h1>
+				<form action="update.jsp">
+					<table>
+						<tr>
+							<td width="100">제목</td>
+							<td colspan="5"><input type="text" name="sub" value="<%=request.getParameter("sub")%>"></td>
+						</tr>
+						<tr>
+							<td>글번호</td>
+							<td><%=request.getParameter("num") %><input type="hidden" name="num" value="<%=request.getParameter("num")%>"></td>
+							<td width="100">글쓴이</td>
+							<td><%=request.getParameter("id") %></td>
+							<td width="100">날짜</td>
+							<td><%=request.getParameter("nalja") %></td>
+						</tr>
+						<tr>
+							<td colspan="6"><textarea name="content" cols="60" rows="5"><%=request.getParameter("content") %></textarea></td>
+						</tr>
+						<tr>
+							<td colspan="6">
+								<input type="submit" value="수 정">
+								<input type="reset" value="취 소">
+							</td>
+						</tr>
+					</table>
 				</form>
-				
 				</center>
-				
 			</td>
 		</tr>
 		<tr>

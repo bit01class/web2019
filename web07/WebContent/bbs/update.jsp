@@ -8,35 +8,33 @@
 </head>
 <body>
 	<%
+	String param=request.getParameter("num");
+	int num=Integer.parseInt(param);
 	String sub=request.getParameter("sub");
-	sub=sub.replace("<", "&lt;");
-	sub=sub.replace(">", "&gt;");
-	sub=sub.replace("&", "£¦");
-	String id=request.getParameter("id");
 	String content=request.getParameter("content");
-	String sql="insert into bbs03 (num,sub,id,content,nalja) values ";
-	sql+="(bbs03_seq.nextval,'"+sub+"','"+id+"','"+content+"',sysdate)";
-	System.out.println();
+	String sql="update bbs03 set sub='";
+	sql+=sub+"', content='"+content+"' where num="+num;
+	
 	Connection conn=null;
 	Statement stmt=null;
 	
 	try{
 		conn=MyOracle.getConnection();
 		stmt=conn.createStatement();
-		stmt.executeUpdate(sql);
+		int result=stmt.executeUpdate(sql);
+		if(result>0){
+			response.sendRedirect("detail.jsp?idx="+num);
+		}else{
+			response.sendRedirect("edit.jsp?idx="+num);
+		}
 	}finally{
 		if(stmt!=null)stmt.close();
 		if(conn!=null)conn.close();
 	}
-	response.sendRedirect("list.jsp");
 	
 	%>
 </body>
 </html>
-
-
-
-
 
 
 
