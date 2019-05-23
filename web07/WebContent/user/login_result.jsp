@@ -23,12 +23,18 @@
 				<a href="<%=root %>/bbs/list.jsp">[°Ô ½Ã ÆÇ]</a>
 				<%
 String id=request.getParameter("id");
+if(id.contains("--") || id.contains(",")|| id.contains(")")){
+	response.sendRedirect("login.jsp");
+}else{
+				
 String pw=request.getParameter("pw");
 String sql="select name from user03 where id='"+id+"' and pw='"+pw+"'";
 String driver="oracle.jdbc.driver.OracleDriver";
 String url="jdbc:oracle:thin:@localhost:1521:xe";
 String user="hr";
 String password="hr";
+
+System.out.println(sql);
 
 Class.forName(driver);
 Connection conn=null;
@@ -65,7 +71,7 @@ if(name==null){
 	session.setAttribute("login_user", name);
 	session.setAttribute("login_id",id);
 }
-
+}
 				%>
 				</center>
 			</td>

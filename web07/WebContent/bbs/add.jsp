@@ -33,27 +33,37 @@
 		<tr>
 			<td>
 				<center>
-					<%
-					
-					if(session.getAttribute("login_id")!=null){
-					response.sendRedirect("logout.jsp");
-					}
-					%>
-					<h1>로그인 페이지</h1>
-					<form action="login_result.jsp">
+					<h1>입력 페이지</h1>
+					<form action="insert.jsp">
 						<table>
 							<tr>
-								<td align="center" bgcolor="#f0f0f0">id</td>
-								<td><input type="text" name="id" placeholder="id를 입력하세요"></td>
+								<td>제목</td>
+								<td><input type="text" name="sub" ></td>
 							</tr>
 							<tr>
-								<td align="center" bgcolor="#f0f0f0">pw</td>
-								<td><input type="password" name="pw" placeholder="pw를 입력하세요"></td>
+								<td>글쓴이</td>
+								<td><%
+								if(session.getAttribute("login_id")==null){
+								%>
+								<input type="text" name="id">
+								<%
+								}else{ 
+								out.print(session.getAttribute("login_id"));
+								%>
+								<input type="hidden" name="id" value="<%=session.getAttribute("login_id")%>" readonly="readonly">
+								<%} %>
+								</td>
+								
 							</tr>
 							<tr>
-								<td align="center" colspan="2" bgcolor="#f0f0f0">
-									<input type="submit" value="로그인">
-									<input type="reset" value="취 소">
+								<td colspan="2">
+								<textarea name="content" rows="5" cols="50"></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+								<input type="submit" value="입 력">
+								<input type="reset" value="취 소">
 								</td>
 							</tr>
 						</table>

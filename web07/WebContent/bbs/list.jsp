@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR" import="java.sql.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,32 +33,54 @@
 		<tr>
 			<td>
 				<center>
-					<%
-					
-					if(session.getAttribute("login_id")!=null){
-					response.sendRedirect("logout.jsp");
-					}
-					%>
-					<h1>로그인 페이지</h1>
-					<form action="login_result.jsp">
-						<table>
-							<tr>
-								<td align="center" bgcolor="#f0f0f0">id</td>
-								<td><input type="text" name="id" placeholder="id를 입력하세요"></td>
-							</tr>
-							<tr>
-								<td align="center" bgcolor="#f0f0f0">pw</td>
-								<td><input type="password" name="pw" placeholder="pw를 입력하세요"></td>
-							</tr>
-							<tr>
-								<td align="center" colspan="2" bgcolor="#f0f0f0">
-									<input type="submit" value="로그인">
-									<input type="reset" value="취 소">
-								</td>
-							</tr>
-						</table>
-					</form>
+				<h1>게시판</h1>
+				<table width="80%" border="1" cellspacing="0" align="center">
+					<tr>
+						<th width="80">글번호</th>
+						<th>글제목</th>
+						<th width="100">글쓴이</th>
+						<th width="100">날 짜</th>
+					</tr>
+<%
+String sql="select * from bbs03 order by num desc";
+Connection conn=null;
+Statement stmt=null;
+ResultSet rs=null;
+
+try{
+	conn=com.bit.db.MyOracle.getConnection();
+	stmt=conn.createStatement();
+	rs=stmt.executeQuery(sql);
+	int cnt=0;
+	while(rs.next()){
+		cnt++;
+		String ele="";
+		if(cnt%2==0){
+			ele=" bgcolor=\"#ffff90\"";
+		}
+%>					
+					<tr>
+						<td <%=ele %>><%=rs.getInt(1) %></td>
+						<td <%=ele %>><%=rs.getString(2) %></td>
+						<td <%=ele %>><%=rs.getString(4) %></td>
+						<td <%=ele %>><%=rs.getDate(5) %></td>
+					</tr>
+<%
+	}
+}finally{
+	if(rs!=null)rs.close();
+	if(stmt!=null)stmt.close();
+	if(conn!=null)conn.close();
+}
+%>					
+				</table>
+				
+				<form action="add.jsp">
+					<input type="submit" value="입 력">
+				</form>
+				
 				</center>
+				
 			</td>
 		</tr>
 		<tr>

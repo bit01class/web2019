@@ -33,30 +33,9 @@
 		<tr>
 			<td>
 				<center>
-					<%
-					
-					if(session.getAttribute("login_id")!=null){
-					response.sendRedirect("logout.jsp");
-					}
-					%>
-					<h1>로그인 페이지</h1>
-					<form action="login_result.jsp">
-						<table>
-							<tr>
-								<td align="center" bgcolor="#f0f0f0">id</td>
-								<td><input type="text" name="id" placeholder="id를 입력하세요"></td>
-							</tr>
-							<tr>
-								<td align="center" bgcolor="#f0f0f0">pw</td>
-								<td><input type="password" name="pw" placeholder="pw를 입력하세요"></td>
-							</tr>
-							<tr>
-								<td align="center" colspan="2" bgcolor="#f0f0f0">
-									<input type="submit" value="로그인">
-									<input type="reset" value="취 소">
-								</td>
-							</tr>
-						</table>
+					<h1>로그아웃하시겠습니까?</h1>
+					<form action="logout_result.jsp">
+						<input type="submit" value="확인">
 					</form>
 				</center>
 			</td>
