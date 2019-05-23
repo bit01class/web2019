@@ -83,7 +83,10 @@ try{
 					<tr>
 						<td bgcolor="#f0f0f0" colspan="6">
 							<a href="edit.jsp?num=<%=num%>&sub=<%=sub%>&id=<%=id%>&content=<%=content%>&nalja=<%=nalja%>">[수 정]</a>
-							<a href="delete.jsp?num=<%=num%>">[삭 제]</a>
+							<form action="delete.jsp" method="post">
+							<input type="hidden" name="num" value="<%=num%>">
+							<input type="submit" value="삭 제">
+							</form>
 						</td>
 					</tr>
 				</table>

@@ -40,7 +40,7 @@
 					}
 					%>
 					<h1>로그인 페이지</h1>
-					<form action="login_result.jsp">
+					<form method="post" action="login_result.jsp">
 						<table>
 							<tr>
 								<td align="center" bgcolor="#f0f0f0">id</td>

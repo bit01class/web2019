@@ -34,6 +34,14 @@
 			<td>
 				<center>
 				<h1>게시판</h1>
+				<form>
+					<select name="option">
+						<option value="sub">제목</option>
+						<option value="id">글쓴이</option>
+					</select>
+					<input type="text" name="keyword">
+					<input type="submit" value="검색">
+				</form>
 				<table width="80%" border="1" cellspacing="0" align="center">
 					<tr>
 						<th width="80">글번호</th>
@@ -42,7 +50,16 @@
 						<th width="100">날 짜</th>
 					</tr>
 <%
-String sql="select * from bbs03 order by num desc";
+String option=request.getParameter("option");
+if(option==null){
+	option="sub";
+}
+String keyword=request.getParameter("keyword");
+if(keyword==null){
+	keyword="";
+}
+String sql="select * from bbs03 where "+option+" like'%";
+sql+=keyword+"%' order by num desc";
 Connection conn=null;
 Statement stmt=null;
 ResultSet rs=null;
