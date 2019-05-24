@@ -120,7 +120,9 @@
 	if(end+1<=end2){
 	%><a href="list.jsp?page=<%=end+1%>&limit=<%=limit%>">[다음]</a><%} %>
 	</center>
-	<br><br><br><br>
+	<br><br>
+	<a href="add.jsp">[입 력]</a>
+	<br><br>
 <%@ include file="../template/footer.jspf" %>
 </body>
 </html>
