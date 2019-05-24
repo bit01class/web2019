@@ -79,7 +79,7 @@
 		%>
 		<tr>
 			<td><%=row.num %></td>
-			<td><%=row.sub %></td>
+			<td><a href="detail.jsp?idx=<%=row.num %>"><%=row.sub %></a></td>
 			<td><%=row.id %></td>
 			<td><%=row.nalja.getMonth()+"¿ù"+row.nalja.getDate()+"ÀÏ" %></td>
 		</tr>

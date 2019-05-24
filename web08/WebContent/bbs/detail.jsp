@@ -95,7 +95,7 @@
 		<tr>
 			<td colspan="6" bgcolor="#BFB9B6">
 				<a href="edit.jsp?idx=<%=row.num%>">[수 정]</a>
-				<a href="#">[삭 제]</a>
+				<a href="delete.jsp?idx=<%=row.num%>">[삭 제]</a>
 			</td>
 		</tr>
 		
