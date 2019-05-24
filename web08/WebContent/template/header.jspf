@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%!
+
+String driver="oracle.jdbc.driver.OracleDriver";
+String url="jdbc:oracle:thin:@localhost:1521:xe";
+String user="hr";
+String password="hr";
+%>
+
+<%
+String path=request.getRequestURI();
+int cnt=-2;
+for(int i=0; i<path.length(); i++){
+	if(path.charAt(i)=='/'){cnt++;}
+}
+path="./";
+for(int i=0; i<cnt; i++){
+	path+="../";
+}
+
+%>
+	<table width="800" align="center">
+		<tr>
+			<td colspan="6">
+				<table width="100%">
+					<tr>
+						<td><img src="<%=path %>imgs/logo.png"></td>
+						<td align="right">
+							<a href="#">로그인</a>
+							/
+							<a href="#">회원가입</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#BFB9B6"></td>
+			<td align="center" bgcolor="#E2E2E2" width="100"><a href="<%=path %>">[HOME]</a></td>
+			<td align="center" bgcolor="#E2E2E2" width="100"><a href="<%=path %>comming.jsp">오시는길</a></td>
+			<td align="center" bgcolor="#E2E2E2" width="100"><a href="<%=path %>bbs/list.jsp">게시판</a></td>
+			<td align="center" bgcolor="#E2E2E2" width="100"><a href="#">방명록</a></td>
+			<td bgcolor="#BFB9B6"></td>
+		</tr>
+		<tr>
+			<td colspan="6">
+			<!-- main start -->
+	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
