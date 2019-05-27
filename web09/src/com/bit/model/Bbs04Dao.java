@@ -187,6 +187,42 @@ public class Bbs04Dao {
 			if(conn!=null)conn.close();
 		}
 	}
+	
+	public int update(int num,String sub,String content) throws SQLException{
+		int result=0;
+		String sql="UPDATE BBS04 SET SUB=?,CONTENT=? WHERE NUM=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		try{
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, sub);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, num);
+			result=pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		return result;
+	}
+	
+	public int delete(int num) throws SQLException{
+		int result=0;
+		String sql="DELETE FROM BBS04 WHERE NUM=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		try{
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			result=pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		return result;
+	}
 }
 
 
