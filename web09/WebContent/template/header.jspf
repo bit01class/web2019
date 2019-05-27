@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+	<table width="800" align="center" border="1">
+		<tr>
+			<td>
+				<img src="/web09/imgs/logo.png">
+			</td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="#f0f0f0">
+				<a href="/web09/">HOME</a>
+				<a href="/web09/intro.jsp?idx=1234">jsp에러처리</a>
+				<a href="/web09/bbs/list.jsp">게시판</a>
+				<a href="#">방명록</a>
+				<a href="#">로그인</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			
