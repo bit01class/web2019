@@ -30,7 +30,11 @@
 		<tr>
 			<a href="detail.jsp?idx=<%=bean.getNum() %>">
 			<td><%=bean.getNum() %></td>
-			<td><%=bean.getSub() %></td>
+			<td><%
+				for(int j=0; j<bean.getRe_lev(); j++){
+					out.print("&nbsp;&nbsp;&nbsp;&nbsp;¦±");
+				}
+			%><%=bean.getSub() %></td>
 			<td><%=bean.getNalja() %></td>
 			</a>
 		</tr>

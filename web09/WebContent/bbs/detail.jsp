@@ -29,6 +29,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
+					<a href="reAdd.jsp?idx=<%=bean.getNum() %>">[답 글]</a>
 					<a href="#">[수 정]</a>
 					<a href="#">[삭 제]</a>
 				</td>

@@ -11,7 +11,7 @@ import com.bit.db.MyOracle;
 public class Bbs04Dao {
 	
 	public ArrayList<Bbs04Bean> getList() throws SQLException{
-		String sql="SELECT * FROM BBS04 ORDER BY NUM DESC";
+		String sql="SELECT * FROM BBS04 ORDER BY RE_REF DESC, RE_SEQ DESC";
 		ArrayList<Bbs04Bean> list=new ArrayList<Bbs04Bean>();
 		
 		Connection conn=null;
@@ -26,6 +26,7 @@ public class Bbs04Dao {
 				bean.setNum(rs.getInt("num"));
 				bean.setSub(rs.getString("sub"));
 				bean.setNalja(rs.getDate("nalja"));
+				bean.setRe_lev(rs.getInt("re_lev"));
 				list.add(bean);
 			}
 		}finally{
@@ -37,7 +38,7 @@ public class Bbs04Dao {
 	}
 	
 	public int addList(String sub,String content) throws SQLException{
-		String sql="INSERT INTO BBS04 VALUES (BBS04_SEQ.NEXTVAL,?,?,SYSDATE)";
+		String sql="INSERT INTO BBS04 VALUES (BBS04_SEQ.NEXTVAL,?,?,SYSDATE,bbs04_seq.currval,0,0)";
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		
@@ -70,6 +71,7 @@ public class Bbs04Dao {
 				bean.setSub(rs.getString("sub"));
 				bean.setContent(rs.getString("content"));
 				bean.setNalja(rs.getDate("nalja"));
+				bean.setRe_ref(rs.getInt("Re_ref"));
 			}
 		}finally{
 			if(rs!=null)rs.close();
@@ -77,6 +79,110 @@ public class Bbs04Dao {
 			if(conn!=null)conn.close();
 		}
 		return bean;
+	}
+	
+	public Bbs04Bean getTitle(int num) throws SQLException{
+		Bbs04Bean bean=new Bbs04Bean();
+		String sql="select sub,re_ref,re_seq,re_lev from bbs04 where num=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				bean.setSub(rs.getString(1));
+				bean.setRe_ref(rs.getInt(2));
+				bean.setRe_seq(rs.getInt(3));
+				bean.setRe_lev(rs.getInt(4));
+			}
+		}finally{
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		
+		return bean;
+	}
+	
+	public void updateSeq() throws SQLException{
+		String sql="SELECT BBS04_SEQ.NEXTVAL FROM DUAL";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+		}finally{
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+	}
+	
+	public void updateNum(int num) throws SQLException{
+		String sql="UPDATE BBS04 SET NUM=NUM+1 WHERE NUM>=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		try{
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			int result=pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+	}
+	
+	public void reAdd(int num,String sub,String content) throws SQLException{
+		String sql="INSERT INTO BBS04 VALUES (?,?,?,SYSDATE)";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		try{
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, sub);
+			pstmt.setString(3, content);
+			int result=pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+	}
+	
+	public void reAdd2(String sub,String content
+							,int ref,int seq,int lev) throws SQLException{
+		String sql1="update bbs04 set re_seq=re_seq+1 where re_ref=?";
+		String sql2="insert into bbs04 values (bbs04_seq.nextval,";
+			sql2+="?,?,sysdate,?,0,?)";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		try{
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql1);
+			pstmt.setInt(1, ref);
+			int result=pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		try{
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql2);
+			pstmt.setString(1, sub);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, ref);
+			pstmt.setInt(4, lev+1);
+			int result=pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
 	}
 }
 
