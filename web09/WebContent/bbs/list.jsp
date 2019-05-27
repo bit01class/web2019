@@ -32,8 +32,9 @@
 			<td><%=bean.getNum() %></td>
 			<td><%
 				for(int j=0; j<bean.getRe_lev(); j++){
-					out.print("&nbsp;&nbsp;&nbsp;&nbsp;¦±");
+					out.print("&nbsp;&nbsp;&nbsp;&nbsp;");
 				}
+				if(bean.getRe_lev()!=0)out.print("¦±");
 			%><%=bean.getSub() %></td>
 			<td><%=bean.getNalja() %></td>
 			</a>

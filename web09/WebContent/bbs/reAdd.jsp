@@ -19,6 +19,7 @@
 		<h1>´ä±Û</h1>
 		<center>
 			<form action="reInsert.jsp" method="post">
+				<input type="hidden" name="num" value="<%=bean.getNum()%>">
 				<input type="hidden" name="ref" value="<%=bean.getRe_ref()%>">
 				<input type="hidden" name="seq" value="<%=bean.getRe_seq()%>">
 				<input type="hidden" name="lev" value="<%=bean.getRe_lev()%>">

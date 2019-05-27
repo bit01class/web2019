@@ -83,7 +83,7 @@ public class Bbs04Dao {
 	
 	public Bbs04Bean getTitle(int num) throws SQLException{
 		Bbs04Bean bean=new Bbs04Bean();
-		String sql="select sub,re_ref,re_seq,re_lev from bbs04 where num=?";
+		String sql="select sub,re_ref,re_seq,re_lev,num from bbs04 where num=?";
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -97,6 +97,7 @@ public class Bbs04Dao {
 				bean.setRe_ref(rs.getInt(2));
 				bean.setRe_seq(rs.getInt(3));
 				bean.setRe_lev(rs.getInt(4));
+				bean.setNum(rs.getInt(5));
 			}
 		}finally{
 			if(rs!=null)rs.close();
@@ -157,15 +158,16 @@ public class Bbs04Dao {
 	
 	public void reAdd2(String sub,String content
 							,int ref,int seq,int lev) throws SQLException{
-		String sql1="update bbs04 set re_seq=re_seq+1 where re_ref=?";
+		String sql1="update bbs04 set re_seq=re_seq+1 where re_ref=? and re_seq>=?";
 		String sql2="insert into bbs04 values (bbs04_seq.nextval,";
-			sql2+="?,?,sysdate,?,0,?)";
+			sql2+="?,?,sysdate,?,?,?)";
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		try{
 			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql1);
 			pstmt.setInt(1, ref);
+			pstmt.setInt(2, seq);
 			int result=pstmt.executeUpdate();
 		}finally{
 			if(pstmt!=null)pstmt.close();
@@ -177,7 +179,8 @@ public class Bbs04Dao {
 			pstmt.setString(1, sub);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, ref);
-			pstmt.setInt(4, lev+1);
+			pstmt.setInt(5, lev+1);
+			pstmt.setInt(4, seq);
 			int result=pstmt.executeUpdate();
 		}finally{
 			if(pstmt!=null)pstmt.close();

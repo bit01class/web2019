@@ -9,6 +9,8 @@
 <body>
 	<%
 		request.setCharacterEncoding("euc-kr");
+		String param=request.getParameter("num");
+		int num=Integer.parseInt(param);
 		String sub=request.getParameter("sub");
 		String content=request.getParameter("content");
 		
@@ -20,8 +22,13 @@
 		int lev=Integer.parseInt(param3);
 		
 		Bbs04Dao dao=new Bbs04Dao();
-		dao.reAdd2(sub,content,ref,seq,lev);
-	
+		if(num==ref){
+			// 주 글의 답글
+			dao.reAdd2(sub,content,ref,0,lev);
+		}else{
+			//답글의 답글
+			dao.reAdd2(sub,content,ref,seq,lev);
+		}
 		response.sendRedirect("list.jsp");
 	%>
 </body>
