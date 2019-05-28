@@ -1,0 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<h3>디렉티브를 통해 호출</h3>
+<%
+	out.print(request.getParameter("msg"));
+%>
