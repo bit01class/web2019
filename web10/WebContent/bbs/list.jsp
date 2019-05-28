@@ -56,7 +56,7 @@
 		%>
 		<tr>
 			<td><%=bean.getNum() %></td>
-			<td><%=bean.getSub() %></td>
+			<td><a href="detail.jsp?num=<%=bean.getNum() %>"><%=bean.getSub() %></a></td>
 			<td><%=bean.getId() %></td>
 			<td><%=bean.getNalja() %></td>
 		</tr>
