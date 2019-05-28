@@ -10,13 +10,28 @@
 <jsp:include page="template/header.jsp"></jsp:include>
 <jsp:include page="template/menu.jsp"></jsp:include>
 	<%request.setCharacterEncoding("EUC-KR"); %>
-	<h1>include 디렉티브와 액션태그 include의 차이</h1>
+	<h2>include 디렉티브와 액션태그 include의 차이</h2>
 
 	<%@ include file="template/item1.jspf" %>
 	<jsp:include page="template/item2.jsp">
 		<jsp:param value="한글" name="test"/>
 	</jsp:include>
 	
+	
+	
+	<h2>UseBean태그</h2>
+	<jsp:useBean id="beanName" class="com.bit.dto.Bbs03Bean"></jsp:useBean>
+	<jsp:setProperty property="*" name="beanName"/>
+	
+	
+	
+	
+	
+	<ul>
+		<li><%=beanName %></li>
+		<li><jsp:getProperty property="sub" name="beanName"/></li>
+		<li><jsp:getProperty property="num" name="beanName"/></li>
+	</ul>
 
 <jsp:include page="template/footer.jsp"></jsp:include>
 </body>

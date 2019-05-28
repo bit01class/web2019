@@ -9,15 +9,21 @@
 </head>
 <body>
 	<%
-		final String SQL="SELECT * FROM BBS03 ORDER BY NUM DESC";
+		//final String SQL="SELECT * FROM BBS03 ORDER BY NUM DESC";
 		ArrayList<Bbs03Bean> list=new ArrayList<Bbs03Bean>();
 		Connection conn=null;
-		PreparedStatement pstmt=null;
+		//PreparedStatement pstmt=null;
 		ResultSet rs=null;
+		CallableStatement cstmt=null;
+		String sql="{call bbs03list(?)}";
 		try{
 			conn=MyOracle.getConnection();
-			pstmt=conn.prepareStatement(SQL);
-			rs=pstmt.executeQuery();
+			//pstmt=conn.prepareStatement(SQL);
+			//rs=pstmt.executeQuery();
+			cstmt=conn.prepareCall(sql);
+			cstmt.registerOutParameter(1, oracle.jdbc.OracleTypes.CURSOR);
+			cstmt.execute();
+			rs=(ResultSet)cstmt.getObject(1);
 			while(rs.next()){
 				Bbs03Bean bean=new Bbs03Bean();
 				bean.setNum(rs.getInt("num"));
@@ -28,7 +34,8 @@
 			}
 		}finally{
 			if(rs!=null)rs.close();
-			if(pstmt!=null)pstmt.close();
+			if(cstmt!=null)cstmt.close();
+			//if(pstmt!=null)pstmt.close();
 			if(conn!=null)conn.close();
 		}
 	%>
