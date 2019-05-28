@@ -57,7 +57,7 @@
 		</tr>
 		<tr>
 			<td colspan="6">
-				<a href="edit.jsp?num=<jsp:getProperty property="num" name="bean"/>&sub=<jsp:getProperty property="sub" name="bean"/>&content=<jsp:getProperty property="content" name="bean"/>&id=<jsp:getProperty property="id" name="bean"/>">[수 정]</a>
+				<a href="edit.jsp?num=<jsp:getProperty property="num" name="bean"/>">[수 정]</a>
 				<a href="edit.jsp?">[삭 제]</a>
 			</td>
 		</tr>
