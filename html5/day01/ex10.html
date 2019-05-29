@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+/*
+선택자의 우선순위
+            인라인>id선택자>class선택자>태그선택자>*
+*/
+            /*
+            body>*{
+                color: red;
+            }
+            #id1{
+                color:blue;
+            }
+            .cl1{
+                color:green;
+            }
+            p{
+                color:aqua;
+            }
+            a:link,a:visited{
+                background-color: aqua;
+                color: blue;
+            }
+            a:active,a:hover{
+                background-color: red;
+                color: white;
+            }
+            */
+            *:not(a){
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>제목</h1>
+        <p>내용1</p>
+        <p class="cl1">내용2</p>
+        <p id="id1">내용3</p>
+        <a href="ex06.html">ex06</a>
+        <a href="ex07.html">ex07</a>
+        <a href="ex08.html">ex08</a>
+        <a href="ex09.html">ex09</a>
+        <a href="ex10.html">ex10</a>
+        <a href="ex11.html">ex11</a>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
