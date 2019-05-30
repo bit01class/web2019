@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div:nth-child(2){
+                width: 300px;
+                background-color: yellow;
+            }
+            div:nth-child(2)~div{
+                width: 300px;
+                background-color: yellow;
+                margin:10px 10px 10px 0px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: red;
+            }
+            span{
+                background-color: aqua;
+            }
+            *>span:nth-child(6){
+                width: 300px;
+            }
+            *>span:nth-child(7){
+                margin: 10px;
+                border-width: 5px;
+                border-color: blue;
+                border-style: solid;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>div와 span태그</h1>
+        
+        <div>box1</div>
+        <div>box2</div>
+        <div>box3</div>
+        <div>box4</div>
+        <span>inline1</span><span>inline2</span><span>inline3</span><br><span>inline4</span><span>inline5</span>
+    </body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div{
+                word-wrap: break-word;
+                width: 200px;
+                height: 200px;
+                background-color: gray;
+                position: static;
+                border: 1px solid red;
+                /*opacity: 0.5;*/
+            }
+            div>div{
+                background-color: aqua;
+                position: fixed;
+                top: 0px;
+                left: 50px;
+            }
+        
+        
+        </style>
+    </head>
+    <body>
+        <h1>static</h1>
+        <div>box1
+            <div>box2</div>
+        </div>
+        <div>box3</div>
+    </body>
+</html>

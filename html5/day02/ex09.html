@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            form>div>input:nth-child(2){
+                color: red;
+                width: 300px;
+                height: 50px;
+                border: 1px solid red;
+                background-color: aqua;
+            }
+            form>div>label{
+                width: 100px;
+                display: inline-block;
+            }
+            form>div>select{
+                width: 300px;
+            }
+            form>div>input[type=checkbox]{
+                margin: 10px;
+            }
+            form>div>textarea{
+                width: 300px;
+                height: 200px;
+                border: 1px solid red;
+                background-color: aqua;
+                resize: none;
+            }
+            form{
+                background-color: blue;
+                width: 500px;
+                margin: 0px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>회원가입</h1>
+        <form>
+            <div>
+                <label for="id">id</label>
+                <input type="text" id="id" value="abcdef"/>
+            </div>
+            <div>
+                <label for="pw">pw</label>
+                <input type="password" id="pw" value="12345"/>
+            </div>
+            <div>
+                <label for="tel">tel</label>
+                <input type="tel" id="tel" value=""/>
+            </div>
+            <div>
+                <label for="email">email</label>
+                <input type="email" id="email" value=""/>
+            </div>
+            <div>
+                <label for="home">home</label>
+                <input type="url" id="home" value=""/>
+            </div>
+            <div>
+                <label for="num">num</label>
+                <input type="number" id="num" value="10"/>
+            </div>
+            <div>
+                <label for="range">range</label>
+                <input type="range" id="range" min="-10" max="10" value="0"/>
+            </div>
+            <div>
+                <label for="color">color</label>
+                <input type="color" name="color" id="color" value="0"/>
+            </div>
+            <div>
+            <select>
+                <optgroup label="group1">
+                <option>item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                </optgroup>
+                
+                <optgroup label="group2">
+                <option>item4</option>
+                <option>item5</option>
+                </optgroup>
+            </select>
+            </div>
+            <div>
+                <input type="checkbox" id="ch1"/><label for="ch1">item1</label>
+                <input type="checkbox" id="ch2"/><label for="ch2">item2</label>
+                <input type="checkbox" id="ch3"/><label for="ch3">item3</label>
+            </div>
+            <div>
+                <textarea></textarea>
+            </div>
+            
+            
+            
+            <div>
+                <input type="submit" value="전송"/>
+            </div>
+        </form>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
