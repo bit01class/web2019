@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div>a{
+                background-color: aqua;
+                width: 100px;
+                height: 50px;
+                display: inline-block;
+            }
+            div>a:hover{
+                height: 200px;
+            }
+            div>div{
+                background-image: url(imgs/ball.jpg);
+                background-size: 100%;
+                left: 0px;
+                position: relative;
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                transition-duration: 3s;
+                /*transition-delay: 1s;*/
+                transform: rotate(0deg);
+                transition-timing-function: ease;
+            }
+            div>div:hover{
+                left: 200px;
+                
+                transform: rotate(360deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <a href="#">menu1</a>
+            <a href="#">menu2</a>
+            <a href="#">menu3</a>
+            <a href="#">menu4</a>
+        </div>
+        <div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

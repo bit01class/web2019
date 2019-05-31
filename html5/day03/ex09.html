@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .containerw{
+                width: 100%;
+                margin: 0px auto;
+            }
+            .container{
+                width: 1020px;
+                margin: 0px auto;
+            }
+            .row{
+                clear: both;
+            }
+            @media only screen and (min-width:768px){
+                
+            .grid01,.grid02,.grid03,.grid04,
+            .grid05,.grid06,.grid07,.grid08,
+            .grid09,.grid10,.grid11,.grid12{
+                float: left;
+                box-sizing: border-box;
+                border-width: 1px;
+                border-style: dashed;
+                border-color: red;
+            }
+            .container>.row>.grid01{width: 85px;}
+            .container>.row>.grid02{width: 170px;}
+            .container>.row>.grid03{width: 255px;}
+            .container>.row>.grid04{width: 340px;}
+            .container>.row>.grid05{width: 425px;}
+            .container>.row>.grid06{width: 510px;}
+            .container>.row>.grid07{width: 595px;}
+            .container>.row>.grid08{width: 680px;}
+            .container>.row>.grid09{width: 765px;}
+            .container>.row>.grid10{width: 850px;}
+            .container>.row>.grid11{width: 935px;}
+            .container>.row>.grid12{width: 1020px;}
+            /**/
+            .containerw>.row>.grid01{width: 8.3333%;}
+            .containerw>.row>.grid02{width: 16.6666%;}
+            .containerw>.row>.grid03{width: 25%;}
+            .containerw>.row>.grid04{width: 33.3333%;}
+            .containerw>.row>.grid05{width: 41.6665%;}
+            .containerw>.row>.grid06{width: 50%;}
+            .containerw>.row>.grid07{width: 58.3331%;}
+            .containerw>.row>.grid08{width: 66.6664%;}
+            .containerw>.row>.grid09{width: 75%;}
+            .containerw>.row>.grid10{width: 83.3333;}
+            .containerw>.row>.grid11{width: 91.6663%;}
+            .containerw>.row>.grid12{width: 100%;}
+            }
+            
+            @media only screen and (max-width:767px){
+                /*phone < 768*/
+                .mgrid01,.mgrid02,.mgrid03,.mgrid04,
+                .mgrid05,.mgrid06,.mgrid07,.mgrid08,
+                .mgrid09,.mgrid10,.mgrid11,.mgrid12{
+                    float: left;
+                    box-sizing: border-box;
+                    border-width: 1px;
+                    border-style: dashed;
+                    border-color: red;
+                }
+                .row>.mgrid01{width: 8.3333%;}
+                .row>.mgrid02{width: 16.6666%;}
+                .row>.mgrid03{width: 25%;}
+                .row>.mgrid04{width: 33.3333%;}
+                .row>.mgrid05{width: 41.6665%;}
+                .row>.mgrid06{width: 50%;}
+                .row>.mgrid07{width: 58.3331%;}
+                .row>.mgrid08{width: 66.6664%;}
+                .row>.mgrid09{width: 75%;}
+                .row>.mgrid10{width: 83.3333;}
+                .row>.mgrid11{width: 91.6663%;}
+                .row>.mgrid12{width: 100%;}
+                .mgrid00{
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="containerw">
+            <div class="row">
+                <div class="grid12 mgrid12">12</div>
+            </div>
+            <div class="row">
+                <div class="grid01 mgrid06">1</div>
+                <div class="grid11 mgrid06">11</div>
+            </div>
+            <div class="row">
+                <div class="grid03 mgrid06">3</div>
+                <div class="grid03 mgrid06">3</div>
+                <div class="grid03 mgrid06">3</div>
+                <div class="grid03 mgrid06">3</div>
+            </div>
+            <div class="row">
+                <div class="grid04 mgrid06">4</div>
+                <div class="grid04 mgrid06">4</div>
+                <div class="grid04 mgrid00">4</div>
+            </div>
+            <div class="row">
+                <div class="grid12 mgrid12">12</div>
+            </div>
+            <div class="row">
+                <div class="grid12 mgrid00">12</div>
+            </div>
+            
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

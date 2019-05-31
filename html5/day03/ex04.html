@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div{
+                background-color: antiquewhite;
+            }
+            div+div{
+                background-color: blue;
+            }
+            div>ul{
+                /*background-color: aquamarine;*/
+                overflow: auto;
+                padding: 0px;
+                width: 408px;
+                margin: 0px auto;
+            }
+            div>ul>li{
+                background-color: aqua;
+                width: 100px;
+                float: left;
+                list-style: none;
+                margin: 0px 1px;
+            }
+            div>ul>li>a{
+                background-color: yellow;
+                display: inline-block;
+                width: 100px;
+                height: 50px;
+                text-decoration: none;
+                font-weight: bold;
+                text-align: center;
+                line-height: 50px;
+            }
+            div>ul>li>a:visited,div>ul>li>a:link{
+                color: red;
+            }
+            div>ul>li>a:active,div>ul>li>a:hover{
+                color: yellow;
+                background-color: red;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul>
+                <li>
+                    <a href="#">menu1</a>
+                </li>
+                <li>
+                    <a href="#">menu2</a>
+                </li>
+                <li>
+                    <a href="#">menu3</a>
+                </li>
+                <li>
+                    <a href="#">menu4</a>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
