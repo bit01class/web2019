@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            var obj1=1234;
+            function myfunc01(){
+                var obj1=4321;
+                console.log(this.obj1);
+            }
+            
+            myfunc01();
+            console.log("------------------------");
+            var obj2=new Object();
+            obj2.key1='abc';
+            obj2.key3=1234;
+            obj2.key2=function(){
+                console.log(this.key1);
+                console.log(this.key3);
+            };
+            
+            obj2.key2();
+            
+            console.log("------------------------");
+            var arr=new Array();
+            
+            var stu=newInstance();
+            stu.setNum(1111);
+            stu.setKor(90);
+            stu.setEng(80);
+            arr.push(stu);
+            var stu2=newInstance();
+            stu2.setNum(2222);
+            stu2.setKor(70);
+            stu2.setEng(60);
+            arr.push(stu2);
+            var stu3=newInstance();
+            stu3.setNum(3333);
+            stu3.setKor(10);
+            stu3.setEng(20);
+            arr.push(stu3);
+            
+            
+            for(var i=0; i<arr.length; i++){
+                var obj=arr[i];
+                console.log(obj.getNum(),obj.getKor(),obj.getEng());
+            }
+            
+            
+            function newInstance(){
+                var obj4={
+                'num':1,
+                'kor':0,
+                'eng':0,
+                'setNum':function(a){
+                    this.num=a;},
+                'setKor':function(a){
+                    this.kor=a;},
+                'setEng':function(a){
+                    this.eng=a;},
+                'getNum':function(){
+                    return this.num;},
+                'getKor':function(){
+                    return this.kor;},
+                'getEng':function(){
+                    return this.eng;}
+                };
+                
+                return obj4;
+            }
+            
+        </script>
+    </head>
+    <body>
+        <h1>변수</h1>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

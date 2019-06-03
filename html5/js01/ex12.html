@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+        
+            function myfunc(a){
+                var msg='myfunc('+a+')';
+                return function (){
+                    alert(msg);
+                };
+            }
+        
+            myfunc()();
+        </script>
+    </head>
+    <body>
+        <h1>클로저</h1>
+        
+    </body>
+</html>
