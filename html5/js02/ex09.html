@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            body>div{
+                width: 800px;
+                margin: 0px auto;
+                background-color: gray;
+                text-align: center;
+            }
+        </style>
+        <script type="text/javascript">
+            var cnt=1;
+            function changImg(){
+                if(cnt<6)cnt++;
+                else cnt=1;
+                var img=document.querySelector('img');
+                img.src='imgs/b0'+cnt+'.jpg';
+                console.log(img.src);
+            }
+            function imgLoop(){
+                setInterval(changImg,3000);
+            }
+        </script>
+    </head>
+    <body onload="imgLoop()">
+        <div id="header">
+            <h1>비트교육센터</h1>
+        </div>
+        <div id="menu">
+            <a href="ex01.html">menu1</a>
+            <a href="ex02.html">menu2</a>
+            <a href="ex03.html">menu3</a>
+            <a href="ex04.html">menu4</a>
+        </div>
+        <div id="content">
+            <img alt="main" src="imgs/b01.jpg"/>
+        </div>
+        <div id="footer">
+        Copyright &copy; 비트캠프 All rights reserved.
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            h1{
+                color: red;
+            }
+            p{
+                background-color: blue;
+            }
+        
+        </style>
+        <script type="text/javascript">
+        
+            function myload(){
+                var box1=document.querySelector('#box01');
+                box1.style.backgroundColor='red';
+                var a=document.querySelector('a');
+//                var url=a.getAttribute('href');
+//                alert(url);
+//                a.setAttribute('href','ex07.html');
+                a.href='ex07.html';
+                var img=document.querySelector('img');
+                img.src='imgs/ball.jpg';
+            }
+        </script>
+    </head>
+    <body onload="myload()">
+        <h1>제목</h1>
+        <p>내용</p>
+        <img src="imgs/logo.png" alt="logo"/>
+        <div id="box01">box1</div>
+        <div id="box02">box2</div>
+        <a href="ex01.html">link</a>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
