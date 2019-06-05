@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script type="text/javascript">
+      var target;  
+      var cnt=0;
+      var arr=[
+          '<img alt="" src="imgs/b01.jpg"/><img alt="" src="imgs/b02.jpg"/><img alt="" src="imgs/b03.jpg"/>',
+          '<img alt="" src="imgs/b02.jpg"/><img alt="" src="imgs/b03.jpg"/><img alt="" src="imgs/b04.jpg"/>',
+          '<img alt="" src="imgs/b03.jpg"/><img alt="" src="imgs/b04.jpg"/><img alt="" src="imgs/b05.jpg"/>',
+          '<img alt="" src="imgs/b04.jpg"/><img alt="" src="imgs/b05.jpg"/><img alt="" src="imgs/b06.jpg"/>',
+          '<img alt="" src="imgs/b05.jpg"/><img alt="" src="imgs/b06.jpg"/><img alt="" src="imgs/b01.jpg"/>',
+          '<img alt="" src="imgs/b06.jpg"/><img alt="" src="imgs/b01.jpg"/><img alt="" src="imgs/b02.jpg"/>'
+      ];
+      function myload(){
+        target=document.querySelector("#target");  
+        myloop();  
+      }
+      function myloop(){
+          target.innerHTML=arr[cnt];
+          if(cnt<5){
+            cnt++;  
+          }else{
+            cnt=0;
+          }
+          setTimeout(myloop,3000);
+      }
+      
+    </script>
+  </head>
+
+  <body onload="myload()">
+    <div class="container">
+        <div id="header">
+            <h1>비트교육센터</h1>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="#">menu1</a></li>
+                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+                <li><a href="#">menu4</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="target">
+                <!--
+                <img alt="" src="imgs/b01.jpg"/>
+                <img alt="" src="imgs/b02.jpg"/>
+                <img alt="" src="imgs/b03.jpg"/>-->
+                
+            </div>
+        </div>
+        <div id="footer">
+            Copyright &copy; 비트캠프 All rights reserved.
+        </div>
+    </div>
+    
+
+  </body>
+
+</html>

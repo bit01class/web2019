@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <style type="text/css">
+        div{
+            width: 300px;
+            height: 100px;
+            background-color: aqua;
+        }  
+    </style>
+    <script type="text/javascript">
+        var h1,btn,div,input,ele;
+        window.onload=function(){
+            h1=document.querySelector('h1');
+            btn=document.querySelector('button');
+            div=document.querySelector('div');
+            input=document.querySelector('input');
+            var mybtn=function(){
+                alert('클릭');
+            }
+            btn.onclick=mybtn;
+            h1.onclick=mybtn;
+//            div.onclick=mybtn;
+//            div.onmouseover=mybtn;//마우스가 엘리먼트위로 
+//            div.onmouseout=mybtn;//마우스가 (위에있다)빠져나감
+//            div.onmousedown=mybtn;//마우스버튼 눌렸을때
+//            div.onmouseup=mybtn;//마우스버튼(눌렸다가)올라오면
+            document.onkeydown=function(){
+//                console.log('down');
+            };
+            document.onkeypress=function(){
+//                console.log('press');
+            };
+            var cnt=0;
+            document.onkeyup=function(e){
+                console.log(e.key);
+                if(e.key=='ArrowRight'){
+                    cnt+=10;
+                    div.style.marginLeft=cnt+'px';
+                }
+//                console.log('up');
+            };
+            
+        };
+      
+    </script>
+  </head>
+
+  <body>
+    <h1>마우스이벤트</h1>
+    <button>버튼1</button>
+    <div>box</div>
+    <input type="text"/>
+  </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

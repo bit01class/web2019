@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        
+        function myload(){
+            var ul=document.querySelector('ul');
+//            var li=document.createElement('li');
+//            var msg=document.createTextNode('menu5');
+//            li.appendChild(msg);
+//            ul.appendChild(li);
+            var tag=ul.innerHTML;
+            ul.innerHTML=tag+"<li>menu5</li>";
+        }
+    </script>
+</head>
+    
+<body onload="myload()">
+    <h1>태그 추가/삭제</h1>
+    <ul>
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+    </ul>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

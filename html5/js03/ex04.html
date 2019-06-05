@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script type="text/javascript">
+      var target,nxt,nxtnxt;
+      var cnt=0;
+      function myload(){
+        target=document.querySelector("#target"); 
+        myloop();
+      }    
+      function myloop(){
+        if(cnt<6)cnt++;
+        else cnt=1;
+        chgImg(0,cnt);
+        if(cnt+1<7) nxt=cnt+1;
+        else nxt=1;
+        chgImg(1,nxt);
+        if(cnt+2<7) nxtnxt=cnt+2;
+        else if(cnt+2==7) nxtnxt=1;
+        else nxtnxt=2;
+        chgImg(2,nxtnxt);
+        setTimeout(myloop,3000);
+      }
+      function chgImg(idx,num){
+        var img2=document.querySelectorAll('img')[idx];
+        img2.outerHTML='<img alt="" src="imgs/b0'+num+'.jpg"/>';
+      }
+    </script>
+  </head>
+
+  <body onload="myload()">
+    <div class="container">
+        <div id="header">
+            <h1>비트교육센터</h1>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="#">menu1</a></li>
+                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+                <li><a href="#">menu4</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <div id="target">
+                <img alt="" src="imgs/b01.jpg"/>
+                <img alt="" src="imgs/b02.jpg"/>
+                <img alt="" src="imgs/b03.jpg"/>
+            </div>
+        </div>
+        <div id="footer">
+            Copyright &copy; 비트캠프 All rights reserved.
+        </div>
+    </div>
+    
+
+  </body>
+
+</html>

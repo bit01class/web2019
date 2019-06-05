@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script type="text/javascript">
+        function myload(){
+            var body=document.querySelector('body');
+            //console.log(body.innerHTML);
+//            console.log(body.innerText);
+            var h1=document.querySelector('h1');
+//            h1.innerText="<a href='#'>텍스트노드<a>를 바꿉니다";
+//            h1.innerHTML="<a href='#'>텍스트노드<a>를 바꿉니다";
+//            h1.outerHTML="<a href='#'>텍스트노드<a>를 바꿉니다";
+            h1.outerText="<a href='#'>텍스트노드<a>를 바꿉니다";
+            chgImg();
+            
+        }  
+        var cnt=0;
+        function chgImg(){
+            if(cnt<6){
+                cnt++;
+            }else{
+                cnt=1;
+            }
+            var img=document.querySelector('img');
+            img.outerHTML="<img src=\"imgs/b0"+cnt+".jpg\" />";
+            setTimeout(chgImg,3000);
+        }
+    </script>
+  </head>
+
+  <body onload="myload()">
+    <h1>innerHTML</h1>
+    <p>자식노드를 작성합니다</p>
+    <img src="imgs/b01.jpg" />
+  </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
