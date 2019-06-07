@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr;
+	window.onload=function(){
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					var xml=xhr.responseXML;
+					var lng=xml.children[0].children.length;
+					var msg='';
+					for(var i=0; i<lng; i++){
+						msg+='<tr>';
+						console.log(xml.children[0].children[i].children[0].childNodes[0].nodeValue
+								,xml.children[0].children[i].children[1].childNodes[0].nodeValue
+								,xml.children[0].children[i].children[2].childNodes[0].nodeValue
+								,xml.children[0].children[i].children[3].childNodes[0].nodeValue);
+						
+						msg+='<td>';
+						msg+=xml.children[0].children[i].children[0].childNodes[0].nodeValue;
+						msg+='</td>';
+						msg+='<td>';
+						msg+=xml.children[0].children[i].children[1].childNodes[0].nodeValue;
+						msg+='</td>';
+						msg+='<td>';
+						msg+=xml.children[0].children[i].children[2].childNodes[0].nodeValue;
+						msg+='</td>';
+						
+						msg+='<td>';
+						msg+=xml.children[0].children[i].children[3].childNodes[0].nodeValue;
+						msg+='</td>';
+						msg+='</tr>';
+					}
+					var table=document.querySelector('table');
+					table.innerHTML=table.innerHTML+msg;
+				}
+			}
+		};
+		xhr.open('get','students.xml');
+		xhr.send();
+	};
+</script>
+</head>
+<body>
+	<h1>xml파싱</h1>
+	<table>
+		<tr>
+			<th>학번</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

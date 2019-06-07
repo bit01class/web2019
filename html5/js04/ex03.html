@@ -15,8 +15,10 @@ window.onload=function(){
     console.log(btn.style.backgroundColor);
 //    btn.onclick=btnClk;//level 1
 //    btn.onclick=btnClk2;
-      btn.attachEvent('onclick',btnClk2);
-      btn.detachEvent('onclick',btnClk2);
+    ///// ie8 이하 ////////
+//      btn.attachEvent('onclick',btnClk2);
+//      btn.detachEvent('onclick',btnClk2);
+    ///////////////////////
 //    btn.addEventListener('click',btnClk);//level 2
 //    btn.addEventListener('click',btnClk2);//level 2
 //    btn.addEventListener('click',function(){

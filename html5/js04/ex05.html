@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+var btn1,btn2,btn3,btn4;
+window.onload=function(){
+    btn1=document.querySelectorAll('button')[0];
+    btn2=document.querySelectorAll('button')[1];
+    btn3=document.querySelectorAll('button')[2];
+    btn4=document.querySelectorAll('button')[3];
+    
+    var clk=function(event){
+        event.stopPropagation(); // 이벤트전파x
+        console.log(event.target==this);
+        console.log(event.clientX,event.clientY);
+        console.log(event.offsetX,event.offsetY);
+        
+//        var span=document.createElement('span');
+//        span.appendChild(document.createTextNode('여기 클릭했음'));
+//        this.parentElement.appendChild(span);
+    };
+    
+//    btn1.onclick=clk;
+//    btn2.onclick=clk;
+//    btn3.onclick=clk;
+//    btn4.onclick=clk;
+    btn1.onclick=function(){};
+    btn1.addEventListener('click',clk);
+    btn2.addEventListener('click',clk);
+    btn3.addEventListener('click',clk);
+    btn4.addEventListener('click',clk);
+    var target=document.querySelectorAll('div')[4];
+    target.style.position='absolute';
+    target.style.left=0+'px';
+    target.style.top=0+'px';
+    document.addEventListener('keyup',function(e){
+        console.log(e);
+        if(e.key=='ArrowRight'){
+          target.style.left=10+parseInt(target.style.left)+'px';
+        }else if(e.key=='ArrowDown'){
+           target.style.top=10+parseInt(target.style.top)+'px'; 
+        }
+    });
+    
+    var form=document.querySelector('form');
+    form.addEventListener('submit',go);
+//    form.onsubmit=go;
+};
+function go(e){
+    e.preventDefault();// 기본기능 취소
+    alert('이동');
+    var id=document.querySelector('#id').value;
+    window.location.replace(e.target.action+"?id="+id);
+//                return false;
+}
+        </script>
+    </head>
+    <body>
+        <h1>이벤트</h1>
+        <div>
+        <button>버튼1</button>
+        </div>
+        <div>
+        <button>버튼2</button>
+        </div>
+        <div>
+        <button>버튼3</button>
+        </div>
+        <div>
+        <button>버튼4</button>
+        </div>
+        <div>x</div>
+        <form action="ex01.html">
+            <input type="text" id="id"/>
+            <input type="submit" value="이동"/>
+        </form>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
