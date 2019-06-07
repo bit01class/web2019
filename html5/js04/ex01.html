@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            form>div>span{
+                color: red;
+                font-style: italic;
+            }
+        </style>
+        <script type="text/javascript">
+        
+window.onload=function(){
+    var alink=document.querySelector('h1+a');
+    alink.onclick=function(){
+        alert('이벤트동작은 하고 있습니다');
+        return false;
+    };
+//                var btn=document.querySelector('input[type=submit]');
+//                btn.onclick=function(){
+//                    alert('버튼이벤트');
+//                    return false;
+//                };
+    var form=document.querySelector('form');
+    form.onsubmit=function(){
+        var id=document.querySelector('#id');
+        var msgid=id.value;
+        var span=document.createElement('span');
+        if(msgid==''){
+            var errmsg=document.createTextNode('id를 반드시 입력하세요');
+            span.appendChild(errmsg);
+//            span.style.color='red';
+            id.parentElement.appendChild(span);
+            return false;
+        }
+        var pw=document.getElementById('pw');
+        var msgpw=pw.value;
+
+        if(msgpw==''){
+           var errmsg=document.createTextNode('pw를 반드시 입력하세요'); 
+            span.appendChild(errmsg);
+//            span.style.color='red';
+//            span.style.fontStyle='italic';
+            pw.parentElement.appendChild(span);
+            return false;
+        }
+        
+        var ra1=document.getElementById('ra1').checked;
+        var ra2=document.getElementById('ra2').checked;
+        var ra3=document.getElementById('ra3').checked;
+        //alert(ra1+"\n"+ra2+"\n"+ra3);
+        if(!(ra1||ra2||ra3)){
+            span.appendChild(document.createTextNode('반드시선택을 하셔야합니다'));
+            document.getElementById('ra1').parentElement.appendChild(span);
+            return false;
+        }
+        var sel=document.querySelector('select');
+        var selval=sel.value;
+        //alert(selval);
+        if(selval=='no'){
+            sel.outerHTML=sel.outerHTML+"<span>선택하세요</span>";
+            return false;
+        }
+        var ta=document.querySelector('textarea');
+        alert(ta.value);
+        ta.value="";
+        return true;
+    };//form event
+    
+    var ta=document.querySelector('textarea');
+    ta.onclick=function(){
+        ta.value="";
+    };
+    ta.onfocus=function(){
+        ta.value="";
+    };
+    ta.onblur=function(){
+        if(ta.value==''){
+            ta.value='내용입력하세요';
+        }
+    }
+    var id=document.querySelector('#id');
+    id.onclick=function(){
+        id.value="";
+    };
+};
+            
+        </script>
+    </head>
+    <body>
+        <h1>DOM 이벤트 (level1)</h1>
+        <a href="http://naver.com">naver</a>
+        <form action="http://naver.com">
+            <div>
+                <label for="id">id</label>
+                <input type="text" name="id" id="id" value="id를 입력"/>
+            </div>
+            <div>
+                <label for="pw">pw</label>
+                <input type="password" name="pw" id="pw"/>
+            </div>
+            <div>
+                <input type="radio" name="ra" id="ra1"/>
+                <label for="ra1">item1</label>
+                <input type="radio" name="ra" id="ra2" />
+                <label for="ra2">item2</label>
+                <input type="radio" name="ra" id="ra3"/>
+                <label for="ra3">item3</label>
+            </div>
+            <div>
+                <input type="checkbox" name="ch" id="ch1"/>
+                <label for="ch1">item1</label>
+                <input type="checkbox" name="ch" id="ch2"/>
+                <label for="ch2">item2</label>
+                <input type="checkbox" name="ch" id="ch3"/>
+                <label for="ch3">item3</label>
+            </div>
+            <div>
+                <select name="sel">
+                    <option value="no">목록에서 선택하세요</option>
+                    <option>item1</option>
+                    <option>item2</option>
+                    <option>item3</option>
+                    <option>item4</option>
+                </select>
+            </div>
+            <div>
+                <textarea name="ta">내용을 입력하세요</textarea>
+            </div>
+            <input type="submit" value="전송"/>
+        </form>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
