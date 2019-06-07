@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+var h1,div,btn,tf;
+window.addEventListener('load',myload);
+
+function myload(){
+//    alert('로드');
+    h1=document.querySelector('h1');
+    div=document.querySelector('div');
+    btn=document.querySelector('button');
+    tf=document.querySelector('input[type=text]');
+
+    var clk=function(){
+        console.log('클릭');
+    };
+    var mover=function(){
+        console.log('마우스 위로');
+    };
+    var mout=function(){
+        console.log('마우스 밖으로');
+    };
+    
+    btn.addEventListener('click',clk);
+    btn.addEventListener('mousedown',function(){
+        console.log('down');
+    });
+    btn.addEventListener('mouseup',function(){
+        console.log('up');
+    });
+    div.addEventListener('mouseover',mover);
+    div.addEventListener('mouseout',mout);
+    tf.addEventListener('keydown',function(){
+        console.log('keydown');
+    });
+    tf.addEventListener('keypress',function(){
+        console.log('keypress');
+    });
+    tf.addEventListener('keyup',function(){
+        console.log('keyup');
+    });
+//    tf.addEventListener('focus',function(){
+//        console.log('활성화');
+//    });
+//    tf.addEventListener('blur',function(){
+//        console.log('비활성화');
+//    });
+    tf.addEventListener('focusin',function(){
+        console.log('활성화');
+    });
+    tf.addEventListener('focusout',function(){
+        console.log('비활성화');
+    });
+};
+        
+        </script>
+    </head>
+    <body>
+        <h1>level2 이벤트들</h1>
+        <div>box</div>
+        <button>버튼</button>
+        <input type="text" />
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+    var btnClk=function(){
+        alert('버튼이 클릭됨');
+    };
+    var btnClk2=function(){
+        console.log('버튼이 클릭됨');
+    };
+window.onload=function(){
+//    var btn=document.querySelector('button');
+    var btn=document.getElementsByTagName('button')[0];
+    console.log(btn.style.backgroundColor);
+//    btn.onclick=btnClk;//level 1
+//    btn.onclick=btnClk2;
+      btn.attachEvent('onclick',btnClk2);
+      btn.detachEvent('onclick',btnClk2);
+//    btn.addEventListener('click',btnClk);//level 2
+//    btn.addEventListener('click',btnClk2);//level 2
+//    btn.addEventListener('click',function(){
+//        btn.innerText='수정';
+//    });
+    
+    
+    
+//    btn.removeEventListener('click',btnClk);
+};
+        </script>
+    </head>
+    <body>
+        <h1>js event level2</h1>
+        <button>버튼</button>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
