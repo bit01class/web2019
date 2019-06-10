@@ -96,8 +96,8 @@
 	var carousel,imgs,prev,next;
 	var cnt=0;
 	var menu,p1,p2,p3;
-	var xhr,tbody;
-	var addbtn;
+	var xhr,tbody,addtf,addta;
+	var addbtn,addform;
 	window.onload=function(){
 		carousel=document.querySelector(".carousel");
 		imgs=document.querySelectorAll(".carousel img");
@@ -109,6 +109,7 @@
 		p3=document.querySelector("#p3");
 		addbtn=document.querySelector('#p2 table+button');
 		tbody=document.querySelector('#p2 table>tbody');
+		addform=document.querySelector('#p3 form');
 		imgClear(cnt);
 		prev.onclick=prevImg;
 		next.onclick=nextImg;
@@ -117,9 +118,26 @@
 		menu[1].onclick=show2p;
 		menu[2].onclick=show3p;
 		addbtn.onclick=show3p;
-		
+		addform.onsubmit=add;
 		setInterval(myloop,3000);
 	};
+	function insert(){
+		if(xhr.readyState==4&&xhr.status==200){
+			show2p();
+			document.querySelector('#p3 form input').value='';
+			document.querySelector('#p3 form textarea').value='';
+		}
+	}
+	function add(){
+		addtf=document.querySelector('#p3 form input').value;
+		addta=document.querySelector('#p3 form textarea').value;
+		
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=insert;
+		xhr.open('get','data/insert.jsp?sub='+addtf+'&content='+addta);
+		xhr.send();
+		return false;
+	}
 	function showPage(a){
 		p1.style.display='none';
 		p2.style.display='none';
@@ -128,11 +146,13 @@
 	}
 	function show3p(){
 		showPage(p3);
+		return false;
 	}
 	
 	function show1p(){
 		//index page
 		showPage(p1);
+		return false;
 	}
 	
 	function show2p(){
@@ -142,6 +162,7 @@
 		xhr.onreadystatechange=list;
 		xhr.open('get','data/list.jsp');
 		xhr.send();
+		return false;
 	}
 	function list(){
 		if(xhr.readyState==4&&xhr.status==200){

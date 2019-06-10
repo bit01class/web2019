@@ -32,19 +32,70 @@
 		width: 320px;
 		margin: 0px auto;
 	}
+	#content table{
+		width: 80%;
+	}
+	#content table tr{}
+	#content table tr>td{
+	}
+	#content table tr>td>a{
+		display: block;
+	}
+	#content table tr>td:FIRST-CHILD {
+		width: 100px;		
+	}
+	#content table tr>td:nth-child(3) {
+		width: 120px;		
+	}
+	.my1{
+		animation-name: ani2;
+        animation-duration: 3s;
+	}
+	.detail{
+		position: absolute;
+		top: 200px;
+		left: 200px;
+		background-color: rgba(255,255,255,0.8);
+	}
+	
+	@keyframes ani2{
+		0% {
+			
+			opacity:1;
+			
+		}
+		100% {
+			opacity:0;
+		}
+	}
 </style>
 <script type="text/javascript">
 	var carousel;
 	var imgs;
 	var cnt=0;
 	var menu,xhr;
+	var table,th;
+	var p1,p2;
+	var ta;
 	window.onload=function(){
 		carousel=document.querySelector('#carousel');
 		imgs=document.querySelectorAll('#carousel>img');
 		menu=document.querySelectorAll('#menu>div>ul>li>a');
+		table=document.querySelector('#content>div>table');
+		th=table.innerHTML;
+		p1=document.querySelector('#p1');
+		p2=document.querySelector('#p2');
+		p2.style.display='none';
+		//p2.className=p2.className+' my1';
 		loop();
-		
+		menu[0].onclick=function(){
+			p1.style.display='block';
+			p2.style.display='none';
+			return false;
+		};
 		menu[1].onclick=function(){
+			p1.style.display='none';
+			p2.style.display='block';
 			//alert('menu2');
 			xhr=new XMLHttpRequest();
 			xhr.onreadystatechange=getList;
@@ -58,14 +109,54 @@
 	
 	function getList(){
 		var root=xhr.responseXML;
+		
+		
 		if(xhr.readyState==4 && xhr.status==200){
 			var row=root.getElementsByTagName('row');
-		//	alert(row);
-			
+			var msg='';
 			for(var i=0; i<row.length; i++){
-				alert(row[i].innerHTML);
+				var eles=row[i].children;
+				msg+='<tr>';
+				for(var j=0; j<eles.length; j++){
+					msg+='<td><a href="?idx=';
+					msg+=eles[0].innerHTML+'">'
+					msg+=eles[j].innerHTML+'</a></td>';
+				}
+				msg+='</tr>';
+			}
+			//alert(msg);
+			table.innerHTML=th+msg;
+			ta=document.querySelectorAll('td>a');
+			for(var i=0; i<ta.length; i++){
+				ta[i].onclick=function(){
+					detail(this.href);
+					return false;
+				};
 			}
 		}
+		
+		
+	}
+	function getOne(){
+		var msg=xhr.responseText;
+		if(xhr.readyState==4 && xhr.status==200){
+			//alert(msg);
+			
+			var dt=document.createElement('div');
+			dt.innerText=msg;
+			dt.className='detail';
+			p2.appendChild(dt);
+			
+		}
+	}
+	
+	function detail(url){
+		//alert(url.indexOf('?'));
+		var param=url.substr(url.indexOf('?'));
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=getOne;
+		xhr.open('get','data/detail.jsp'+param);
+		xhr.send();
 	}
 	
 	function loop(){
@@ -96,7 +187,7 @@
 			</div>
 		</div>
 		<div id="content" class="row">
-			<div class="grid12">
+			<div id="p1" class="grid12">
 				<div id="carousel">
 					<img alt="img01" src="imgs/b01.jpg"/>
 					<img alt="img01" src="imgs/b02.jpg"/>
@@ -106,6 +197,16 @@
 					<img alt="img01" src="imgs/b06.jpg"/>
 				</div>
 			
+			</div>
+			<div id="p2" class="grid12">
+				<h2>리스트페이지</h2>
+				<table>
+					<tr>
+						<th>글번호</th>
+						<th>제목</th>
+						<th>날짜</th>
+					</tr>
+				</table>
 			</div>
 		</div>
 		<div id="footer" class="row">
