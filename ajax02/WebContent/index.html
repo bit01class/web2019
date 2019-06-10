@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/mygrid.css" />
+<style type="text/css">
+	#menu>div>ul{
+		padding: 0px;
+		width: 408px;
+		margin: 0px auto;
+	}
+	#menu>div>ul>li{
+		list-style: none;
+		float: left;
+		margin: 0px 1px;
+	}
+	#menu>div>ul>li>a{
+		display: inline-block;
+		width: 100px;
+		background-color: gray;
+		color:white;
+		font-weight: bold;
+		text-decoration: none;
+		text-align: center;
+	}
+	#menu>div>ul>li>a:hover{
+		color:yellow;
+		background-color: red;
+	}
+	#carousel{
+		width: 320px;
+		margin: 0px auto;
+	}
+</style>
+<script type="text/javascript">
+	var carousel;
+	var imgs;
+	var cnt=0;
+	var menu,xhr;
+	window.onload=function(){
+		carousel=document.querySelector('#carousel');
+		imgs=document.querySelectorAll('#carousel>img');
+		menu=document.querySelectorAll('#menu>div>ul>li>a');
+		loop();
+		
+		menu[1].onclick=function(){
+			//alert('menu2');
+			xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=getList;
+			xhr.open('get','data/list.jsp');
+			xhr.send();
+			return false;
+		};
+		
+		
+	};
+	
+	function getList(){
+		var root=xhr.responseXML;
+		if(xhr.readyState==4 && xhr.status==200){
+			var row=root.getElementsByTagName('row');
+		//	alert(row);
+			
+			for(var i=0; i<row.length; i++){
+				alert(row[i].innerHTML);
+			}
+		}
+	}
+	
+	function loop(){
+		for(var i=0; i<imgs.length; i++){
+			imgs[i].style.display='none';
+		}
+		if(cnt>=imgs.length)cnt=0;
+		imgs[cnt++].style.display='block';
+		window.setTimeout(loop,3000);
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<div id="header" class="row">
+			<div class="grid12">
+				<h1>비트교육센터</h1>
+			</div>
+		</div>
+		<div id="menu" class="row">
+			<div class="grid12">
+				<ul>
+					<li><a href="#">HOME</a></li>
+					<li><a href="#">LIST</a></li>
+					<li><a href="#">INSERT</a></li>
+					<li><a href="#">LOGIN</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content" class="row">
+			<div class="grid12">
+				<div id="carousel">
+					<img alt="img01" src="imgs/b01.jpg"/>
+					<img alt="img01" src="imgs/b02.jpg"/>
+					<img alt="img01" src="imgs/b03.jpg"/>
+					<img alt="img01" src="imgs/b04.jpg"/>
+					<img alt="img01" src="imgs/b05.jpg"/>
+					<img alt="img01" src="imgs/b06.jpg"/>
+				</div>
+			
+			</div>
+		</div>
+		<div id="footer" class="row">
+			<div class="grid12">
+			Copyright &copy; 비트캠프 All rights reserved.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
