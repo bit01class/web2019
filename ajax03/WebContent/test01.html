@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr,tbody;
+	window.onload=function(){
+		tbody=document.querySelector('table>tbody');
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=myCallback;
+		xhr.open('get','ex01.json');
+		xhr.send();
+	};
+	function myCallback(){
+		if(xhr.readyState==4&&xhr.status==200){
+			var msg=xhr.responseText;
+			var obj=JSON.parse(msg);
+			var tag='';
+			for(var i=0; i<obj.students.length; i++){
+				var stu=obj.students[i];
+				tag+='<tr>';
+				tag+='<td>'+stu.num+'</td>';
+				tag+='<td>'+stu.name+'</td>';
+				tag+='<td>'+stu.kor+'</td>';
+				tag+='<td>'+stu.eng+'</td>';
+				tag+='</tr>';
+			}
+			tbody.innerHTML=tag;
+		}
+		
+	}
+
+</script>
+</head>
+<body>
+	<h1>학생성적관리</h1>
+	<table>
+		<thead>
+			<tr>
+				<td>학번</td>
+				<td>이름</td>
+				<td>국어</td>
+				<td>영어</td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</body>
+</html>

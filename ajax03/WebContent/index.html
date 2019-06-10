@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/mygrid.css" />
+<style type="text/css">
+	#header h1{
+		background-image: url("imgs/logo.png");
+		background-repeat: no-repeat;
+		width: 	248px;
+		height: 70px;
+		text-indent: -999px;	
+	}	
+	#menu{}
+	#menu>div{
+		background-color: gray;
+		height: 50px;
+	}
+	#menu>div>ul{
+		padding: 0px;
+		margin: 0px auto;
+		width: 400px;
+	}
+	#menu>div>ul>li{
+		list-style: none;
+		float: left;
+	}
+	#menu>div>ul>li>a{
+		color: white;
+		background-color: gray;
+		width: 100px;
+		height: 50px;
+		display: inline-block;
+		text-align: center;
+		line-height: 50px;
+		text-decoration: none;
+	}
+	#menu>div>ul>li>a:hover{
+		color:yellow;
+		background-color: red;
+		box-sizing:border-box;
+		border-top: 5px solid white;
+		border-bottom: 5px solid white;
+	}
+	.carousel{
+		width: 320px;
+		margin: 0px auto;
+	}
+	.carousel>a{
+		position: relative;
+		background-color: rgba(200,200,200,0.5);
+		display:inline-block;
+		height: 320px;
+		top:-320px;
+		line-height: 320px;
+		font-weight: bold;
+		font-size: 42pt;
+		color: white;
+		text-decoration: none;
+	}
+	.carousel>a:last-child{
+		left: 230px;
+	}
+	#p2 table{
+		width: 80%;
+		margin: 0px auto 200px auto;
+	}
+	#p2 table>thead{
+		background-color: gray;
+	}
+	#p2 table>thead>tr>th:first-child{
+		width: 100px;
+	}
+	#p2 table>thead>tr>th:last-child{
+		width: 120px;
+	}
+	#p3 form{
+		width: 80%;
+		margin: 0px auto;
+	}
+	#p3 form>div{
+		text-align: center;
+	}
+	#p3 form>div>label{
+		width:20%;
+	}
+	#p3 form>div>input{
+		width: 80%;
+	}
+	#p3 form>div>textarea{
+		width: 100%;
+	}
+</style>
+<script type="text/javascript">
+	var carousel,imgs,prev,next;
+	var cnt=0;
+	var menu,p1,p2,p3;
+	var xhr,tbody;
+	var addbtn;
+	window.onload=function(){
+		carousel=document.querySelector(".carousel");
+		imgs=document.querySelectorAll(".carousel img");
+		prev=document.querySelectorAll(".carousel a")[0];
+		next=document.querySelectorAll(".carousel a")[1];
+		menu=document.querySelectorAll("#menu ul>li>a");
+		p1=document.querySelector("#p1");
+		p2=document.querySelector("#p2");
+		p3=document.querySelector("#p3");
+		addbtn=document.querySelector('#p2 table+button');
+		tbody=document.querySelector('#p2 table>tbody');
+		imgClear(cnt);
+		prev.onclick=prevImg;
+		next.onclick=nextImg;
+		showPage(p1);
+		menu[0].onclick=show1p;
+		menu[1].onclick=show2p;
+		menu[2].onclick=show3p;
+		addbtn.onclick=show3p;
+		
+		setInterval(myloop,3000);
+	};
+	function showPage(a){
+		p1.style.display='none';
+		p2.style.display='none';
+		p3.style.display='none';
+		a.style.display='block';
+	}
+	function show3p(){
+		showPage(p3);
+	}
+	
+	function show1p(){
+		//index page
+		showPage(p1);
+	}
+	
+	function show2p(){
+		//list page
+		showPage(p2);
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=list;
+		xhr.open('get','data/list.jsp');
+		xhr.send();
+	}
+	function list(){
+		if(xhr.readyState==4&&xhr.status==200){
+			var msg=xhr.responseText;
+			var obj=JSON.parse(msg);
+			var arr=obj.root;
+			var ele='';
+			for(var i=0; i<arr.length; i++){
+				ele+='<tr>';
+				ele+='<td>'+arr[i].num+'</td>';
+				ele+='<td>'+arr[i].sub+'</td>';
+				ele+='<td>'+arr[i].nalja+'</td>';
+				ele+='</tr>';
+			}
+			tbody.innerHTML=ele;
+		}
+	}
+	
+	function myloop(){
+		next.onclick();
+	}
+	
+	function prevImg(){
+		if(cnt>0)cnt--;
+		else cnt=5;
+		imgClear(cnt);
+		return false;
+	}
+	function nextImg(){
+		if(cnt<5)cnt++;
+		else cnt=0;
+		imgClear(cnt);
+		return false;
+	}
+	
+	function imgClear(cnt){
+		for(var i=0; i<imgs.length; i++){
+			imgs[i].style.display='none';
+		}
+		imgs[cnt].style.display='block';
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<div id="header" class="row">
+			<div class="grid12">
+				<h1>비트교육센터</h1>
+			</div>
+		</div>
+		<div id="menu" class="row">
+			<div class="grid12">
+				<ul>
+					<li><a href="#">HOME</a></li>
+					<li><a href="#">LIST</a></li>
+					<li><a href="#">ADD</a></li>
+					<li><a href="#">LOGIN</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content" class="row">
+			<div id="p1" class="grid12">
+				<div class="carousel">
+					<img alt="main" src="imgs/b01.jpg" />
+					<img alt="main" src="imgs/b02.jpg" />
+					<img alt="main" src="imgs/b03.jpg" />
+					<img alt="main" src="imgs/b04.jpg" />
+					<img alt="main" src="imgs/b05.jpg" />
+					<img alt="main" src="imgs/b06.jpg" />
+					<a href="#"><</a>
+					<a href="#">></a>
+				</div>
+			</div>
+			<div id="p2"class="grid12">
+				<h2>리스트 페이지</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>글번호</th>
+							<th>제목</th>
+							<th>날짜</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				<button>입 력</button>
+			</div>
+			<div id="p3" class="grid12">
+				<h2>입력 페이지</h2>
+				<form action="#">
+					<div>
+						<label for="sub">제목</label>
+						<input type="text" id="sub" />
+					</div>
+					<div>
+						<textarea></textarea>
+					</div>
+					<div>
+						<button type="submit">입력</button>
+						<button type="reset">취소</button>
+						<button type="button">뒤로</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="footer" class="row">
+			<div class="grid03">
+				<img alt="" src="imgs/logo2.jpg"/>
+			</div>
+			<div class="grid09">
+				Copyright &copy; 비트캠프 All rights reserved.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
