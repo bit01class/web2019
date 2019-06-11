@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+        window.onload=function(){
+            $('img').attr('src','imgs/b02.jpg');
+            $('a').attr('href','http://daum.net');
+            var link=$('a').attr('href');
+            //alert(link);
+            //var sel=$('select>option:eq(2)').attr('selected');
+            //alert(sel);
+           // $('select>option:eq(3)').attr('selected','selected');
+            //$(':radio:eq(2)').attr('checked','checked');
+            //$(':checkbox').attr('checked','checked');
+            var result=$(':radio:eq(0)').attr('checked');
+            alert(result);
+            
+        };
+        </script>
+    </head>
+    <body>
+        <a href="http://naver.com">naver</a>
+        <img src="imgs/b01.jpg" alt="big"/>
+        <button type="button">버튼</button>
+        <form action="#">
+           <div>
+               <label for="id">id</label>
+               <input type="text" id="id"/>
+           </div>
+            <div><select name="sel" id="sel">
+                    <option>item1</option>
+                    <option selected>item2</option>
+                    <option>item3</option>
+                    <option>itme4</option>
+                </select></div>
+            <div>
+                <input type="radio" name="ra">item1
+                <input type="radio" name="ra" checked>item2
+                <input type="radio" name="ra">item3
+            </div>
+            <div>
+                <input type="checkbox">item1
+                <input type="checkbox">item2
+                <input type="checkbox">item3
+            </div>
+            <div>
+                <textarea></textarea>
+            </div>
+        </form>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

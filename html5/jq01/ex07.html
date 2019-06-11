@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            #source{
+                display: none;
+            }
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+var msg;
+window.onload=function(){
+    msg=$('#source').html();
+    loop();
+};
+function loop(){
+    if($('#source').html().trim()==''){
+        $('#source').html(msg);
+    }
+    var first=$('#source>img:first');
+    $('#target').html(first);
+    window.setTimeout(loop,3000);
+}
+        </script>
+    </head>
+    <body>
+        <div id="target"></div>
+        <div id="source">
+            <img alt="s" src="imgs/s01.jpg"/>
+            <img alt="s" src="imgs/s02.jpg"/>
+            <img alt="s" src="imgs/s03.jpg"/>
+            <img alt="s" src="imgs/s04.jpg"/>
+            <img alt="s" src="imgs/s05.jpg"/>
+            <img alt="s" src="imgs/s06.jpg"/>
+            
+        </div>
+        
+    </body>
+</html>

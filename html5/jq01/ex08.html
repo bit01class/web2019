@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .cl01{
+                color: red;
+            }
+            .cl02{
+                background-color: blue;
+            }
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+window.onload=function(){
+//    var className=$('p').attr('class');
+//    console.log(className);
+//    $('p').attr('class','cl01');
+    $('p').addClass('cl01');
+    $('p').removeClass('cl02');
+    console.log($('p').attr('class'));
+    $('h1').toggleClass('cl01');
+    $('h1').toggleClass('cl01');
+    $('h1').toggleClass('cl01');
+    $('h1').toggleClass('cl01');
+};
+        </script>
+    </head>
+    <body>
+        <h1>class 속성</h1>
+        <p class="cl02">클래스 속성을 부여&제거</p>
+        <ul>
+            <li>item1</li>
+            <li class="cl01">item2</li>
+            <li>item3</li>
+            <li class="cl01">item4</li>
+            <li class="cl02">item5</li>
+        </ul>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            h1{
+                background-color: hotpink;
+            }
+            p{
+                color: gray;
+                
+            }
+            ul{
+                padding: 0px;
+            }
+            ul>li:nth-child(2n){
+                color: blue;
+            }
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+        window.onload=function(){
+            
+            
+            //alert(jQuery('h1').css(['background-color']));
+            //var ele=document.querySelector('h1');
+            //ele.style.backgroundColor='red';
+            $('p').css('color','red');
+            $('p').css('color','#0000ff');
+            $('p').css('color','rgb(0,255,0)');
+            $('p').css({'font-size':'22pt','color':'red'});
+            $('li').css('color',func01);
+            
+            $('h1').css('background-color','gray');
+        };
+            var arr=[
+                'rgb(0,0,0)',
+                'rgb(40,40,40)',
+                'rgb(80,80,80)',
+                'rgb(120,120,120)',
+                'rgb(160,160,160)',
+                'rgb(200,200,200)'
+            ];
+            function func01(idx,val){
+                console.log(idx,val);
+                $(this).css('color',arr[idx]).css('font-size',10+idx+'px');
+            }
+        </script>
+    </head>
+    <body>
+        <h1>css 메서드</h1>
+        <p>스타일 제어</p>
+        <ul>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+            <li>menu6</li>
+        </ul>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

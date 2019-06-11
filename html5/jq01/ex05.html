@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+var cnt=0;
+window.onload=function(){
+    loop();
+};
+function loop(){
+    if(cnt<6)cnt++;
+    else cnt=1;
+    $('#content>img').attr('src',function(idx){
+        var su=cnt+idx;
+        if(su==7)su=1;
+        if(su==8)su=2;
+        $(this).attr('src','imgs/b0'+su+'.jpg');
+    }); 
+    window.setTimeout(loop,3000);           
+}
+        </script>
+    </head>
+    <body>
+        <div>
+            <div id="header"></div>
+            <div id="menu"></div>
+            <div id="content">
+                <img />
+                <img />
+                <img />
+                
+            </div>
+            <div id="footer"></div>
+            
+        </div>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
