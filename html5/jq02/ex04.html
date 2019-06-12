@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+window.onload=function(){
+    //$('ul').append('<li>add01</li>');
+    $('ul').prepend('<li>add01</li>');
+    $('<li>add02</li>').prependTo('ul');
+};        
+        
+        </script>
+    </head>
+    <body>
+        <h1>append & prepend</h1>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+    </body>
+</html>

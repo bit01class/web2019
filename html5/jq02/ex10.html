@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+window.onload=function(){
+//    $('textarea').keydown(mykey);
+//    $('textarea').keypress(mykey);
+    $('textarea').keyup(mykey);
+};
+function mykey(e){
+//    var msg=$(this).val();
+//    while(msg.indexOf('\n')!=-1){
+//        msg=msg.replace('\n','<br/>');
+//    }
+//    $(this).next('div').html(msg);
+//    console.log(e.target===this);
+    console.log(e.which);
+}
+        </script>
+    </head>
+    <body>
+        <h1>key이벤트</h1>
+        <input type="text"/>
+        <textarea></textarea>
+        <div>
+            
+        </div>
+        <div>
+            <div></div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div{
+                background-color: yellow;
+                width: 300px;
+                height: 300px;
+            }
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script type="text/javascript">
+$(document).ready(function(){
+    $('button').eq(0).click(function(){
+        $('#target').fadeOut(3000,function(){
+            alert('end');
+        });//.slideUp(3000);//.hide(3000);
+    }).next().click(function(){
+        $('#target').fadeIn(3000);//.slideDown(3000);//.show(3000);
+    }).next().click(function(){
+        $('#target').slideToggle({duration:2000,easing:'easeInElastic'});//.slideToggle(3000);//.Toggle(3000);
+    });
+    
+});        
+        </script>
+    </head>
+    <body>
+        <h1>애니메이션 1</h1>
+        <button>btn1</button>
+        <button>btn2</button>
+        <button>btn3</button>
+        <div id="target">
+            내용이 보이고 안보입니다
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

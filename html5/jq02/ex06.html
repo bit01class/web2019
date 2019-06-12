@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+window.onload=function(){
+//    $('ul').before('<h2>add</h2>');
+//    $('ul').after('<h2>add</h2>');
+//    $('<h2>add</h2>').insertAfter('ul');
+//    $('<h2>add</h2>').insertBefore('ul');
+        //$('ol').insertBefore('ul');
+    $('ul>li').after(function(idx,txt){
+        $(this).after('<li>'+txt+idx+'</li>');
+    });
+};        
+        </script>
+    </head>
+    <body>
+        <h1>before & after</h1>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+        <ol>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ol>
+    </body>
+</html>

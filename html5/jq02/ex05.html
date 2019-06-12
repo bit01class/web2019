@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div{
+                position: relative;
+                width: 315px;
+                height: 100px;
+                overflow: hidden;
+            }
+            div>img{
+                width: 100px;
+                height: 100px;
+            }
+            div>a{
+                position: relative;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 50px;
+                height: 100px;
+                display: inline-block;
+                background-color: rgba(0,0,0,0.3);
+                text-align: center;
+                line-height: 100px;
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                font-size: 20pt;
+            }
+            /*div>a:last-child{
+                left: 265px;
+            }*/
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+window.onload=function(){
+    
+    $('div>a').eq(1).css({'left': '265px'}).text('>').prev().text('<');
+    
+    var btns=document.querySelectorAll('div>a');
+    btns[0].onclick=btnPrev;
+    btns[1].onclick=btnNext;
+    setInterval(btnNext,3000);
+};
+function btnPrev(){
+    $('img').eq(5).prependTo('div');
+    console.log($('img'));
+    return false;
+}
+function btnNext(){
+    $('img').first().appendTo('div');
+    return false;
+}
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <img alt="s" src="imgs/s01.jpg"/>
+            <img alt="s" src="imgs/s02.jpg"/>
+            <img alt="s" src="imgs/s03.jpg"/>
+            <img alt="s" src="imgs/s04.jpg"/>
+            <img alt="s" src="imgs/s05.jpg"/>
+            <img alt="s" src="imgs/s06.jpg"/>
+            <a href="#">prev</a>
+            <a href="#">next</a>
+        </div>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+

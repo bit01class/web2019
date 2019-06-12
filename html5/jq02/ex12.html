@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+$(document).ready(function(){
+//    $('button').click(function(){
+//        console.log('클릭');
+//    });
+//    $('button').click(function(){
+//        alert('클릭');
+//        
+//    });
+//    $('button').click();
+//    var btn=document.querySelector("button");
+//    btn.onclick=function(){};
+//    btn.addEventListener('click',function(){});
+//    btn.onclick();
+    
+//    live();       //1.0~
+//    delegate();   //1.4.2~
+//    on();         //1.7~
+    
+//    $('a').click(function(e){
+//        e.preventDefault(); // 첫줄에 작성
+//        $(this).after('<br/><a href="ex02.html">add link</a>');
+//        //return false;
+//        
+//    });
+//    $(document).on('click mouseover','a',function(){
+//        console.log(this);
+//        $(this).after('<br/><a href="ex02.html">add link</a>');
+//        return false;
+//    });
+    
+    $('a').on('click mouseover',function(){
+        console.log(this);
+        $(this).after('<br/><a href="ex02.html">add link</a>');
+        $(this).off('mouseover');
+        return false;
+    });
+    
+});        
+        
+        </script>
+    </head>
+    <body>
+        <h1>이벤트</h1>
+        <button>버튼</button>
+        <a href="ex01.html">link</a>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

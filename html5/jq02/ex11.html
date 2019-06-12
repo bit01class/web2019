@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            .err{
+                color: red;
+                font-style: italic;
+            }
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+                
+            
+            
+            $(document).ready(function(){
+    $('input').eq(0).focusin(function(){
+        $('.err').remove();
+        if($(this).val()=="id를 입력"){
+            $(this).val("");
+        }
+    }).focusout(function(){
+        if($(this).val()==""){
+            $(this).val("id를 입력");
+        }
+        if($(this).val().length<6){
+            $(this).after('<span class="err">6자리이상입력하세요</span>');
+        }
+        return false;
+    });
+    
+    $('input').eq(2).focusout(function(){
+        if($('input').eq(1).val()!=$('input').eq(2).val()){
+            $(this).val("");
+            $('input').eq(1).val("");
+        }
+    });
+    $('form').submit(function(){
+        
+        return false;
+    });
+});
+        
+        </script>
+    </head>
+    <body>
+        <h1>회원가입</h1>
+        <form>
+            <div>
+                <label for="id">id</label>
+                <input type="text" id="id" value="id를 입력" />
+            </div>
+            <div>
+                <label for="pw">pw</label>
+                <input type="password" id="pw" />
+            </div>
+            <div>
+                <label for="re">re</label>
+                <input type="password" id="re" />
+            </div>
+            <div>
+                <input type="checkbox" id="ch1" />
+                <label for="ch1">ch1</label>
+                <input type="checkbox" id="ch2" />
+                <label for="ch2">ch2</label>
+                <input type="checkbox" id="ch3" />
+                <label for="ch3">ch3</label>
+            </div>
+            <div>
+                <input type="radio" name="ra" id="ra1" />
+                <label for="ra1">item1</label>
+                <input type="radio" name="ra" id="ra2" />
+                <label for="ra2">item2</label>
+                <input type="radio" name="ra" id="ra3" />
+                <label for="ra3">item3</label>
+            </div>
+            <button>가입</button>
+        </form>
+        <div>target</div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

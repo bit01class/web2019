@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            div{
+                background-color: yellow;
+            }
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+window.onload=function(){
+    $('p').wrap('<div></div>');
+    $('p').unwrap('<div></div>');
+//    $('ul').empty();
+//    $('ul').remove();
+    $('ul').append('<li>add</li>');
+    var ele=$('p').clone();
+    $('ul').after(ele);
+    
+};        
+        </script>
+    </head>
+    <body>
+        <h1>제목</h1>
+        <p>내용</p>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
