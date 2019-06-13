@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            body>div{
+                width: 800px;
+                margin: 0px auto;
+            }
+            #menu{}
+            #menu>ul{
+                width: 400px;
+                padding: 0px;
+                margin: 0px auto;
+            }
+            #menu>ul>li{
+                list-style: none;
+                float: left;
+                width: 100px;
+                height: 35px;
+                background-color: gray;
+                color:white;
+                text-align: center;
+            }
+            #menu>ul>li>ol{
+                padding: 0px;
+                position: relative;
+                top: 13px;
+            }
+            #menu>ul>li>ol>li{
+                list-style: none;
+                width: 100px;
+                height: 35px;
+                background-color: gray;
+            }
+            #content{
+                clear: both;
+            }
+            #content>div{
+                width: 300px;
+                height: 100px;
+                overflow: hidden;
+                margin: 0px auto;
+            }
+            #content>div>div{
+                position: relative;
+                width: 700px;
+            }
+            #content>div>div>img{
+                width: 100px;
+            }
+            #footer{
+                clear:both;
+            }
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+var source;
+$(document).ready(function(){
+    source=$('#content>div>div').clone();
+    $('#menu ol').hide();
+    $('#menu>ul>li').mouseenter(function(){
+        $(this).find('ol').stop().slideDown(1000);
+    }).mouseleave(function(){
+        $(this).find('ol').stop().slideUp(1000);
+    });
+    //$('#content>div').append(source);
+    
+    //nextImg();nextImg();nextImg();nextImg();
+    setInterval(nextImg,3000);
+});
+function nextImg(){
+    $('#content>div>div').animate({'left':-100+'px'},1000,function(){
+        var ele=$('#content>div>div').children().first();
+        $('#content>div>div').append(ele);
+        $('#content>div>div').css({'left':'0px'});
+        cnt=0;
+    });
+}
+        </script>
+    </head>
+    <body>
+        <div>
+            <div id="header">
+                <h1>비트교육센터</h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li>menu1
+                        <ol>
+                            <li>menu1-1</li>
+                            <li>menu1-2</li>
+                            <li>menu1-3</li>
+                            <li>menu1-4</li>
+                        </ol>
+                    </li>
+                    <li>menu2
+                        <ol>
+                            <li>menu2-1</li>
+                            <li>menu2-2</li>
+                            <li>menu2-3</li>
+                            <li>menu2-4</li>
+                        </ol>
+                    </li>
+                    <li>menu3
+                        <ol>
+                            <li>menu3-1</li>
+                            <li>menu3-2</li>
+                            <li>menu3-3</li>
+                            <li>menu3-4</li>
+                        </ol>
+                    </li>
+                    <li>menu4
+                        <ol>
+                            <li>menu4-1</li>
+                            <li>menu4-2</li>
+                            <li>menu4-3</li>
+                            <li>menu4-4</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            <div id="content">
+               <div>
+                <div>
+                    <img alt="s" src="imgs/s01.jpg"/><img alt="s" src="imgs/s02.jpg"/><img alt="s" src="imgs/s03.jpg"/><img alt="s" src="imgs/s04.jpg"/><img alt="s" src="imgs/s05.jpg"/><img alt="s" src="imgs/s06.jpg"/>
+                </div>
+               </div>
+                
+            </div>
+            <div id="footer">
+                Copyright &copy; 비트캠프 All rights reserved.
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

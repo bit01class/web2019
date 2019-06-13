@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css"/>
+        <style type="text/css">
+            #content>div>div{
+                display: inline-block;
+            }
+        </style>
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+        <script type="text/javascript">
+var big,thumb;
+$(document).ready(function(){
+    
+    big=$('#big').bxSlider({
+        minSlides:1,
+        maxSlides:1,
+        slideWidth:400,
+        pager:false
+    });
+    thumb=$('#thumb').bxSlider({
+        mode:'vertical',
+        minSlides:4,
+        maxSlides:4,
+        slideWidth:100,
+        pager:false,
+        controls:false,
+        auto:true,
+        moveSlides:1,
+        touchEnabled:false,/*크롬에서 이벤트o*/
+        onSlideBefore:function(){
+            var idx=thumb.getCurrentSlide();
+            console.log(idx);
+            big.goToSlide(idx);
+        }
+        
+    });
+    
+    $('#thumb>div>a').click(function(){
+        var num=$(this).find('img').attr('alt');
+        thumb.goToSlide(num-1);
+        big.goToSlide(num-1);
+        return false;
+    });
+}); 
+            
+        </script>
+    </head>
+<body>
+    <div>
+    <div id="header">
+        <h1>비트교육센터</h1>
+    </div>
+    <div id="menu">
+        <ul>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+        </ul>
+    </div>
+    <div id="content">
+       <div>
+        <div id="big">
+            <img alt="" src="imgs/b01.jpg"/>
+            <img alt="" src="imgs/b02.jpg"/>
+            <img alt="" src="imgs/b03.jpg"/>
+            <img alt="" src="imgs/b04.jpg"/>
+            <img alt="" src="imgs/b05.jpg"/>
+            <img alt="" src="imgs/b06.jpg"/>
+        </div>
+
+        <div id="thumb">
+           <div>
+            <a href="#"><img alt="1" src="imgs/s01.jpg"/></a>
+           </div>
+           <div>
+            <a href="#"><img alt="2" src="imgs/s02.jpg"/></a>
+           </div>
+           <div>
+            <a href="#"><img alt="3" src="imgs/s03.jpg"/></a>
+           </div>
+           <div>
+            <a href="#"><img alt="4" src="imgs/s04.jpg"/></a>
+           </div>
+           <div>
+            <a href="#"><img alt="5" src="imgs/s05.jpg"/></a>
+           </div>
+           <div>
+            <a href="#"><img alt="6" src="imgs/s06.jpg"/></a>
+           </div>
+        </div>
+       </div>
+    </div>
+    <div id="footer">
+        Copyright &copy; 비트캠프 All rights reserved.
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
