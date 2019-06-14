@@ -100,6 +100,22 @@
 	#content .edit{
 		display: none;
 	}
+	
+	#content form{}
+	#content form>div{}
+	#content form>div>label{
+		width: 20%;
+		display: inline-block;
+		background-color: #aaaaaa;
+	}
+	#content form>div>input{
+		width: 70%;
+	}
+	#content form>div>textarea{
+		width: 90%;
+		height: 150px;
+	}
+	
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxslider.js"></script>
@@ -117,6 +133,17 @@
 		bbsBtn1=$('#menu ol>li>a').eq(0);
 		bbsBtn2=$('#menu ol>li>a').eq(1);
 		bbsBtn1.click(getList);
+		bbsBtn2.click(function(){
+			var msg='<h1>입력 페이지</h1>';
+			$('#content').html(msg);
+			var ele=$('<form action="add.html" method="post"></form>').appendTo('#content');
+			ele.append('<div><label for="sub">제목</label><input type="text" name="sub" id="sub"/></div>');
+			ele.append('<div><label for="name">이름</label><input type="text" name="name" id="name"/></div>');
+			ele.append('<div><textarea name="content"></textarea></div>');
+			ele.append('<div><button>입력</button></div>');
+			ele.submit(addlist);
+			return false;
+		});
 		index=$('#content').html();
 		$('#menu>ul>li>a').eq(0).click(function(){
 			$('#content').html(index);
@@ -189,6 +216,22 @@ $('<table></table>').appendTo('#content').append('<tr><th>글번호</th><th>제�
 						+content+'</td></tr>');
 			});
 		});
+		return false;
+	}
+	function addlist(){
+		$('.err').remove();
+		var sub=$('#content form input').eq(0).val();
+		var name=$('#content form input').eq(1).val();
+		var content=$('#content form textarea').val();
+		if(sub.trim()==''){
+			$('#content form input').eq(0).after('<span class="err">제목없음</span>');
+		}else if(name.trim()==''){
+			$('#content form input').eq(1).after('<span class="err">이름없음</span>');
+		}else{
+		$.post('add.html','sub='+sub+'&name='+name+'&content='+content,function(){
+			getList();
+		});
+		}
 		return false;
 	}
 </script>

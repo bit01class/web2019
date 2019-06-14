@@ -15,11 +15,19 @@
   	<servlet-name>xmllist</servlet-name>
   	<servlet-class>com.bit.xml.List</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>xmladd</servlet-name>
+  	<servlet-class>com.bit.xml.Add</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
   	<servlet-name>xmllist</servlet-name>
   	<url-pattern>/list.xml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>xmladd</servlet-name>
+  	<url-pattern>/add.html</url-pattern>
   </servlet-mapping>
   
 </web-app>
