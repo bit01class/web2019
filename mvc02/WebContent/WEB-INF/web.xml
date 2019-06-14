@@ -19,6 +19,14 @@
   	<servlet-name>xmladd</servlet-name>
   	<servlet-class>com.bit.xml.Add</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>jsonlist</servlet-name>
+  	<servlet-class>com.bit.json.List</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>nalsee</servlet-name>
+  	<servlet-class>com.bit.xml.Nalsee</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -29,7 +37,14 @@
   	<servlet-name>xmladd</servlet-name>
   	<url-pattern>/add.html</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+  	<servlet-name>jsonlist</servlet-name>
+  	<url-pattern>/list.json</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>nalsee</servlet-name>
+  	<url-pattern>/nalsee.xml</url-pattern>
+  </servlet-mapping>
 </web-app>
 
 

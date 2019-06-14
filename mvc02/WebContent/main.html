@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table{
+		border-collapse: collapse;
+		border: 1px solid red;
+		width: 800px;
+	}
+	table>tbody{}
+	table>tbody>tr{}
+	table>thead>tr>th,table>tbody>tr>td{
+		border: 1px solid red;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var temp;
+	$('#menu>a').eq(0).click(function(){
+		
+		/* $.get('list.json',function(data){
+			alert(data);
+		},'json'); */
+		$('#content').html("<table></table>");
+		$('<thead><tr><th>글번호</th><th>제목</th><th>이름</th><th>날짜</th></tr></thead>').appendTo("#content>table");
+		/* $.getJSON('list.json',function(data){
+			data.root.forEach(function(ele,idx){
+				//var mystyle="style=\"background-color:yellow;\"";
+				//if(idx%2==1)mystyle="";
+				//$('<tr></tr>').append("<td "+mystyle+">"+ele.num+"</td>")
+				//				.append("<td "+mystyle+">"+ele.sub+"</td>")
+				//				.append("<td "+mystyle+">"+ele.name+"</td>")
+				//				.append("<td "+mystyle+">"+ele.nalja+"</td>")
+				//				.appendTo("#content>table");
+				
+			});
+		}); */
+		$.ajax({
+			method:'get',
+			url:'https://www.naver.com/',
+			dataType: "text",
+			//data:'id=admin',
+			error:function(xhr,errmsg,err){
+				alert('에러입니다 잠시후 재접속바랍니다');
+			},
+			success:function(data){
+				console.log(data);
+			}
+		});
+		return false;
+	});
+});	
+</script>
+</head>
+<body>
+	<div>
+		<div id="menu">
+			<a href="#">list</a>
+			<a href="#">add</a>
+		</div>
+		<div id="content">
+			<img alt="" src="imgs/main.jpg" />
+		</div>
+	</div>
+	
+	<form action="" method="post" enctype="multipart/form-data">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
