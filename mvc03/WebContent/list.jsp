@@ -5,6 +5,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+	table{
+		border-collapse: collapse;
+		border:1px solid gray;
+		width: 600px;
+	}
+	table>tbody{}
+	table>tbody>tr{}
+	table>tbody>tr>td{
+		border:1px solid gray;
+	}
+	
+	table>tbody>tr:nth-child(2n-1)>td:nth-child(2n-1)
+		,table>tbody>tr:nth-child(2n)>td:nth-child(2n){
+		background-color: #cccccc;
+	}
+	table>tbody>tr>td>a{
+		display: block;
+	}
+
+</style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 
@@ -34,10 +56,10 @@
 			Guest01Dto bean=list.get(i);
 		%>
 		<tr>
-			<td><%=bean.getNum() %></td>
-			<td><%=bean.getSub() %></td>
-			<td><%=bean.getNalja() %></td>
-			<td><%=bean.getPay() %></td>
+			<td><a href="detail.bit?idx=<%=bean.getNum()%>"><%=bean.getNum() %></a></td>
+			<td><a href="detail.bit?idx=<%=bean.getNum()%>"><%=bean.getSub() %></a></td>
+			<td><a href="detail.bit?idx=<%=bean.getNum()%>"><%=bean.getNalja() %></a></td>
+			<td><a href="detail.bit?idx=<%=bean.getNum()%>"><%=bean.getPay() %></a></td>
 		</tr>
 		<%} %>
 		</tbody>

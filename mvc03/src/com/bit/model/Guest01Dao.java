@@ -75,6 +75,63 @@ public class Guest01Dao {
 		}
 	}
 	
+	public Guest01Dto detail(int num){
+		Guest01Dto bean=new Guest01Dto();
+		String sql="select * from guest01 where num=?";
+		try {
+			Class.forName(driver);
+			conn=DriverManager.getConnection(url, user, password);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				bean.setNum(rs.getInt("num"));
+				bean.setSub(rs.getString("sub"));
+				bean.setNalja(rs.getDate("nalja"));
+				bean.setPay(rs.getInt("pay"));
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return bean;
+	}
+	
+	public int update(String sub,String nalja,int pay,int num){
+		int result=0;
+		String sql="update guest01 set sub=?,nalja=to_date(?,'yyyy-mm-dd'),pay=? where num=?";
+		try {
+			Class.forName(driver);
+			conn=DriverManager.getConnection(url,user,password);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, sub);
+			pstmt.setString(2, nalja);
+			pstmt.setInt(3, pay);
+			pstmt.setInt(4, num);
+			result=pstmt.executeUpdate();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }
 
 

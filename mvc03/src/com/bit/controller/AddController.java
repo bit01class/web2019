@@ -24,6 +24,7 @@ public class AddController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		System.out.println("test111");
 		req.setCharacterEncoding("utf-8");
 		String param1=req.getParameter("sub");
 		String param2=req.getParameter("nalja");
