@@ -8,10 +8,10 @@
 $(document).ready(function(){
     
     $.ajax({
-        url:'http://127.0.0.1:8080/mvc03/ex03.jsonp?callback=?',
+        url:'http://127.0.0.1:8080/mvc03/ex03.jsonp',
         method:'get',
         dataType:'jsonp',
-        //jsonpCallback:'myback',
+        jsonpCallback:'myback',
         success:function(data){
             console.log(data);
         }

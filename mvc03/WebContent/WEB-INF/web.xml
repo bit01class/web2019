@@ -29,7 +29,15 @@
   	<servlet-name>edit</servlet-name>
   	<url-pattern>/edit.bit</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>delete</servlet-name>
+  	<url-pattern>/delete.bit</url-pattern>
+  </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>delete</servlet-name>
+  	<servlet-class>com.bit.controller.DeleteController</servlet-class>
+  </servlet>
   <servlet>
   	<servlet-name>edit</servlet-name>
   	<servlet-class>com.bit.controller.EditController</servlet-class>

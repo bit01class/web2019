@@ -132,6 +132,30 @@ public class Guest01Dao {
 		}
 		return result;
 	}
+	
+	public int delete(int num){
+		int result=0;
+		String sql="delete from guest01 where num=?";
+		try {
+			Class.forName(driver);
+			conn=DriverManager.getConnection(url, user, password);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			result=pstmt.executeUpdate();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }
 
 
