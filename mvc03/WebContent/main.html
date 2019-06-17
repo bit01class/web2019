@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+        <script type="text/javascript">
+        
+$(document).ready(function(){
+    
+    $.ajax({
+        url:'http://127.0.0.1:8080/mvc03/ex03.jsonp?callback=?',
+        method:'get',
+        dataType:'jsonp',
+        //jsonpCallback:'myback',
+        success:function(data){
+            console.log(data);
+        }
+    });
+    
+    
+});        
+        
+        </script>
+    </head>
+    <body>
+        <h1>jsonp통신</h1>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
