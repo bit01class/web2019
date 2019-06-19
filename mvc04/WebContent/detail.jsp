@@ -24,14 +24,20 @@
 <script type="text/javascript">
 	$(function(){
 		$('button').hide().eq(0).show().click(function(){
+			$('#content>h2').text("수정 페이지");
 			$('button').show();
 			$(this).hide();
 			$('input[type=hidden]').each(function(idx,ele){
 				if(idx>0){
 					$(ele).attr('type','text');
-					$('label+span').hide();
+					$('label+span').hide().first().show();
 				}
 			});
+		}).next().next().next().click(function(){
+			$('#content>h2').text("상세 페이지");
+			$('button').hide().eq(0).show();
+			$('input[type=text]').attr('type','hidden');
+			$('label+span').show();
 		});
 	});
 </script>
@@ -58,22 +64,22 @@
 				<div>
 					<label for="num">num</label>
 					<span><%=bean.getNum() %></span>
-					<input type="hidden" name="num" id="num" />
+					<input type="hidden" name="num" id="num" value="<%=bean.getNum() %>"/>
 				</div>
 				<div>
 					<label for="sub">sub</label>
 					<span><%=bean.getSub() %></span>
-					<input type="hidden" name="sub" id="sub" />
+					<input type="hidden" name="sub" id="sub" value="<%=bean.getSub() %>"/>
 				</div>
 				<div>
 					<label for="unum">unum</label>
 					<span><%=bean.getName() %></span>
-					<input type="hidden" name="unum" id="unum" />
+					<input type="hidden" name="unum" id="unum" value="<%=bean.getName() %>" disabled="disabled"/>
 				</div>
 				<div>
 					<label for="pay">pay</label>
 					<span><%=bean.getPay() %></span>
-					<input type="hidden" name="pay" id="pay" />
+					<input type="hidden" name="pay" id="pay" value="<%=bean.getPay() %>"/>
 				</div>
 				<div>
 					<button type="button">수정</button>

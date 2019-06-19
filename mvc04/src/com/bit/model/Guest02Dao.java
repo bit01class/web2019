@@ -34,6 +34,8 @@ public class Guest02Dao {
 		try {
 			InitialContext init = new InitialContext();
 			Context context=(Context)init.lookup("java:/comp/env");
+			Hashtable<?, ?> env = context.getEnvironment();
+			System.out.println(env);
 			source=(javax.sql.DataSource) context.lookup("jdbc/oracle");
 			
 		} catch (NamingException e) {
