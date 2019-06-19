@@ -13,6 +13,23 @@
   	<servlet-name>bbslist</servlet-name>
   	<url-pattern>/bbs/list.bit</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>bbsadd</servlet-name>
+  	<url-pattern>/bbs/add.bit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>bbsdetail</servlet-name>
+  	<url-pattern>/bbs/detail.bit</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>bbsdetail</servlet-name>
+  	<servlet-class>com.bit.controller.DetailController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>bbsadd</servlet-name>
+  	<servlet-class>com.bit.controller.AddController</servlet-class>
+  </servlet>
   <servlet>
   	<servlet-name>bbslist</servlet-name>
   	<servlet-class>com.bit.controller.ListController</servlet-class>

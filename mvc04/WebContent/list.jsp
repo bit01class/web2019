@@ -16,7 +16,28 @@
 		margin: 0px auto;
 		border: 1px solid gray;
 	}
+	#content td>a{
+		display: block;
+		text-decoration: none;
+	}
 </style>
+<!--
+CDN () 
+jquery site -> download -> jquery CDN -> jQuery 1.x
+jQuery Core 1.12.4 - uncompressed, minified 
+-->
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#content>table+button').click(function(){
+			window.location.href='add.bit';
+		});
+	});
+</script>
+
 </head>
 <body>
 	<div>
@@ -49,16 +70,17 @@
 				for(Guest02Dto bean:list){				
 				%>
 				<tr>
-					<td><%=bean.getNum() %></td>
-					<td><%=bean.getSub() %></td>
-					<td><%=bean.getName() %></td>
-					<td><%=bean.getPay() %></td>
+					<td><a href="detail.bit?idx=<%=bean.getNum() %>"><%=bean.getNum() %></a></td>
+					<td><a href="detail.bit?idx=<%=bean.getNum() %>"><%=bean.getSub() %></a></td>
+					<td><a href="detail.bit?idx=<%=bean.getNum() %>"><%=bean.getName() %></a></td>
+					<td><a href="detail.bit?idx=<%=bean.getNum() %>"><%=bean.getPay() %></a></td>
 				</tr>
 				<%
 				}
 				%>
 				</tbody>
-			</table>		
+			</table>
+			<button>입력</button>		
 		</div>
 		<div id="footer">
 		Copyright &copy; 비트캠프 All rights reserved.
