@@ -29,7 +29,11 @@
 				<li><a href="<%=root %>/">HOME</a></li>
 				<li><a href="<%=root %>/intro.bit">INTRO</a></li>
 				<li><a href="<%=root %>/bbs/list.bit">BBS</a></li>
-				<li><a href="<%=root %>/login/form.bit">JOIN</a></li>
+				<%if(session.getAttribute("result")==null){ %>
+				<li><a href="<%=root %>/login/form.bit">Login</a></li>
+				<% }else{%>
+				<li><a href="<%=root %>/login/logout.bit">Logout</a></li>
+				<%} %>
 			</ul>
 		</div>
 		<div id="content">

@@ -31,12 +31,16 @@
 				<li><a href="<%=root %>/">HOME</a></li>
 				<li><a href="<%=root %>/intro.bit">INTRO</a></li>
 				<li><a href="<%=root %>/bbs/list.bit">BBS</a></li>
-				<li><a href="<%=root %>/login/form.bit">JOIN</a></li>
+				<%if(session.getAttribute("result")==null){ %>
+				<li><a href="<%=root %>/login/form.bit">Login</a></li>
+				<% }else{%>
+				<li><a href="<%=root %>/login/logout.bit">Logout</a></li>
+				<%} %>
 			</ul>
 		</div>
 		<div id="content">
 			<h2>로그인페이지</h2>
-			<form action="login" method="post">
+			<form action="form.bit" method="post">
 				<div>
 					<label for="id">id</label>
 					<input type="text" name="id" id="id" />
@@ -56,6 +60,10 @@
 		Copyright &copy; 비트캠프 All rights reserved.
 		</div>	
 	</div>
+			<%
+			Object obj=request.getAttribute("errmsg");
+			if(obj!=null)out.println(obj);
+			%>
 </body>
 </html>
 

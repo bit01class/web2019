@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,com.bit.model.Guest02Dto"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +7,28 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../css/frame.css" />
 <style type="text/css">
-#content img {
-	width: 100%;
+#content >h2{
+	text-align: center;
+}
+#content>table{
+	border-collapse: collapse;
+	width: 80%;
+	margin: 0px auto;
+	border:1px solid gray;
+}
+#content>table>thead{}
+#content>table>thead>tr>th{
+	border:1px solid gray;
+}
+#content>table>tbody{}
+#content>table>tbody>tr>td{
+	border:1px solid gray;
 }
 </style>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		
 		
 	});
 </script>
@@ -37,23 +52,24 @@
 			</ul>
 		</div>
 		<div id="content">
-			<h2>회원가입페이지</h2>
-			<form action="join.jsp" method="post">
+			<h2>입력 페이지</h2>
+			<form action="add.bit" method="post">
 				<div>
-					<label for="id">id</label>
-					<input type="text" name="id" id="id" />
-				</div>
-				<div>
-					<label for="pw">pw</label>
-					<input type="password" name="pw" id="pw" />
+					<label for="sub">sub</label>
+					<input type="text" name="sub" id="sub" />
 				</div>
 				<div>
 					<label for="name">name</label>
-					<input type="text" name="name" id="name" />
+					<span><%=session.getAttribute("id") %></span>
 				</div>
 				<div>
-					<button type="submit">회원가입</button>
+					<label for="pay">pay</label>
+					<input type="text" name="pay" id="pay" />
+				</div>
+				<div>
+					<button type="submit">입력</button>
 					<button type="reset">취소</button>
+					<button type="button">뒤로</button>
 				</div>
 			</form>
 		</div>
