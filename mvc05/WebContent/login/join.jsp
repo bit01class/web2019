@@ -26,10 +26,10 @@
 		<div id="menu">
 			<% String root=request.getContextPath(); %>
 			<ul>
-				<li><a href="<%=root %>/index.jsp">HOME</a></li>
-				<li><a href="<%=root %>/intro.jsp">INTRO</a></li>
-				<li><a href="<%=root %>/bbs/list.jsp">BBS</a></li>
-				<li><a href="<%=root %>/login/form.jsp">JOIN</a></li>
+				<li><a href="<%=root %>/">HOME</a></li>
+				<li><a href="<%=root %>/intro.bit">INTRO</a></li>
+				<li><a href="<%=root %>/bbs/list.bit">BBS</a></li>
+				<li><a href="<%=root %>/login/form.bit">JOIN</a></li>
 			</ul>
 		</div>
 		<div id="content">

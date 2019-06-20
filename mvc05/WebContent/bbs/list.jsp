@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,com.bit.model.Guest02Dto"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,10 +40,10 @@
 		<div id="menu">
 			<% String root=request.getContextPath(); %>
 			<ul>
-				<li><a href="<%=root %>/index.jsp">HOME</a></li>
-				<li><a href="<%=root %>/intro.jsp">INTRO</a></li>
-				<li><a href="<%=root %>/bbs/list.jsp">BBS</a></li>
-				<li><a href="<%=root %>/login/form.jsp">JOIN</a></li>
+				<li><a href="<%=root %>/">HOME</a></li>
+				<li><a href="<%=root %>/intro.bit">INTRO</a></li>
+				<li><a href="<%=root %>/bbs/list.bit">BBS</a></li>
+				<li><a href="<%=root %>/login/form.bit">JOIN</a></li>
 			</ul>
 		</div>
 		<div id="content">
@@ -58,7 +58,22 @@
 					</tr>
 				</thead>
 				<tbody>
-				
+					<%
+					ArrayList<Guest02Dto> list=null;
+					list=(ArrayList<Guest02Dto>)request.getAttribute("list");
+					if(list!=null){
+						for(Guest02Dto bean:list){
+					%>
+						<tr>
+							<td><a href="detail.bit?<%=bean.getNum() %>"><%=bean.getNum() %></a></td>
+							<td><a href="detail.bit?<%=bean.getNum() %>"><%=bean.getSub() %></a></td>
+							<td><a href="detail.bit?<%=bean.getNum() %>"><%=bean.getNalja() %></a></td>
+							<td><a href="detail.bit?<%=bean.getNum() %>"><%=bean.getPay() %></a></td>
+						</tr>
+					<%
+						}
+					}
+					%>
 				</tbody>
 			</table>
 		</div>
