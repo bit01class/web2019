@@ -18,7 +18,7 @@
 </head>
 <body>
 	<h1>입력 페이지</h1>
-	<form method="post">
+	<form action="add.bit" method="post">
 		<div>
 			<label for="sub">sub</label>
 			<input type="text" name="sub" />
